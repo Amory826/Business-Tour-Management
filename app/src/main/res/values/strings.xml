@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Business Tour Management</string>
+    <string name="img_logo_description">Company Logo</string>
+    <string name="company_name">Business Tour Management</string>
+    <string name="loading_text">Đang tải</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="Login">Đăng nhập</string>
+    <string name="Admin">Quản trị viên</string>
+
+
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background">#5c2222</color>
+    <color name="background_transparent">#81443E3E</color>
+    <color name="background_transparent_login">#DD201E1E</color>
+    <color name="background_btnLogin">#E6D33333</color>
+    <color name="colorAccent">#FFFFFFFF</color>
+    <color name="colorBackgroundToolBar">#BF8E8E</color>
+    <color name="backgroundAdmin">#4E4D4D</color>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "728187702201",
+    "project_id": "app-business-tour-management",
+    "storage_bucket": "app-business-tour-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728187702201:android:c0247d0b9c01e0c13dc468",
+        "android_client_info": {
+          "package_name": "com.nguyentrongtuan.businesstourmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzLYjjbd-jBQsDl-EmOZ0UvJPeXimVODM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

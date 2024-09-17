@@ -1,0 +1,324 @@
+{
+  "tbl_account": [
+    {
+      "id": 1,
+      "username": "student",
+      "password": "student",
+      "role": "student"
+    },
+    {
+      "id": 2,
+      "username": "teacher",
+      "password": "teacher",
+      "role": "teacher"
+    },
+    {
+      "id": 3,
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    }
+  ],
+  "tbl_class": [
+    {
+      "id": 1,
+      "code": "KTPM01",
+      "name": "Kỹ Thuật Phầm Mềm 1",
+      "idTeacher": "GV01"
+    },
+    {
+      "id": 2,
+      "code": "KTPM02",
+      "name": "Kỹ Thuật Phầm Mềm 2",
+      "idTeacher": "GV01"
+    },
+    {
+      "id": 3,
+      "code": "KTPM03",
+      "name": "Kỹ Thuật Phầm Mềm 3",
+      "idTeacher": "GV02"
+    },
+    {
+      "id": 4,
+      "code": "KTPM04",
+      "name": "Kỹ Thuật Phầm Mềm 4",
+      "idTeacher": "GV02"
+    }
+  ],
+  "tbl_company": [
+    {
+      "id": 1,
+      "code": "COMP001",
+      "name": "Tech Solutions 01",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 2,
+      "code": "COMP002",
+      "name": "Tech Solutions 02",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 3,
+      "code": "COMP003",
+      "name": "Tech Solutions 03",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 4,
+      "code": "COMP004",
+      "name": "Tech Solutions 04",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 5,
+      "code": "COMP005",
+      "name": "Tech Solutions 05",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 6,
+      "code": "COMP006",
+      "name": "Tech Solutions 06",
+      "address": "456 Market St",
+      "description": "A tech company",
+      "email": "info@techsolutions.com",
+      "phoneNumber": "987654321"
+    }
+  ],
+  "tbl_student": [
+    {
+      "id": 1,
+      "idAccount": 1,
+      "idClass": "KTPM03",
+      "code": "SV01",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 2,
+      "idAccount": 1,
+      "idClass": "KTPM03",
+      "code": "SV02",
+      "name": "Nguyễn Tài Tuệ",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 3,
+      "idAccount": 1,
+      "idClass": "KTPM03",
+      "code": "SV03",
+      "name": "Đào Ngọc Văn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 4,
+      "idAccount": 1,
+      "idClass": "KTPM01",
+      "code": "SV04",
+      "name": "Nguyễn Thị Trang",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 5,
+      "idAccount": 1,
+      "idClass": "KTPM02",
+      "code": "SV05",
+      "name": "Nguyễn Thị Khánh Trang",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 6,
+      "idAccount": 1,
+      "idClass": "KTPM04",
+      "code": "SV06",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 7,
+      "idAccount": 1,
+      "idClass": "KTPM03",
+      "code": "SV01",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 8,
+      "idAccount": 1,
+      "idClass": "KTPM03",
+      "code": "SV08",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 9,
+      "idAccount": 1,
+      "idClass": "KTPM02",
+      "code": "SV09",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    },
+    {
+      "id": 10,
+      "idAccount": 1,
+      "idClass": "KTPM04",
+      "code": "SV10",
+      "name": "Nguyễn Trọng Tuấn",
+      "address": "123 Main St",
+      "birthDate": "1995-01-01",
+      "email": "john@example.com",
+      "imagePath": "/images/john.jpg",
+      "phoneNumber": "123456789"
+    }
+  ],
+  "tbl_teacher": [
+    {
+      "id": 1,
+      "idAccount": 2,
+      "code": "GV01",
+      "name": "Nguyễn Thị Trinh",
+      "address": "789 Broadway St",
+      "birthDate": "1980-05-05",
+      "email": "jane.smith@example.com",
+      "imagePath": "/images/jane.jpg",
+      "phoneNumber": "987654321"
+    },
+    {
+      "id": 2,
+      "idAccount": 2,
+      "code": "GV02",
+      "name": "Nguyễn Thị Kim Tuyến",
+      "address": "789 Broadway St",
+      "birthDate": "1980-05-05",
+      "email": "jane.smith@example.com",
+      "imagePath": "/images/jane.jpg",
+      "phoneNumber": "987654321"
+    }
+  ],
+  "tbl_tour": [
+    {
+      "id": 1,
+      "idTeacher": 1,
+      "idCompany": "COMP001",
+      "name": "City Tour",
+      "available": 20,
+      "code": "TOUR001",
+      "description": "A tour around the city",
+      "startDate": "2024-09-01",
+      "student":[
+        {
+          "id": 1,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV01",
+          "name": "Nguyễn Trọng Tuấn",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 2,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV02",
+          "name": "Nguyễn Tài Tuệ",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 3,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV03",
+          "name": "Đào Ngọc Văn",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 4,
+          "idAccount": 1,
+          "idClass": "KTPM01",
+          "code": "SV04",
+          "name": "Nguyễn Thị Trang",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 5,
+          "idAccount": 1,
+          "idClass": "KTPM02",
+          "code": "SV05",
+          "name": "Nguyễn Thị Khánh Trang",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        }
+      ]
+    }
+  ]
+}
