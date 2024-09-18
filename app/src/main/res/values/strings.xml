@@ -7,6 +7,11 @@
     <string name="password">Mật khẩu</string>
     <string name="Login">Đăng nhập</string>
     <string name="Admin">Quản trị viên</string>
+    <string name="The_tour_is_organized">Chuyến tham quan được tổ chức</string>
+    <string name="CompanyWithSchool">Doanh nghiệp liên kết với nhà trường</string>
+    <string name="StudentManagement">Sinh viên được quản lý</string>
+    <string name="TeacherManagement">Giáo viên đại diện nhà trường</string>
+    <string name="TourManagement">Các chuyến tham quan doanh nghiệp</string>
 
 
 

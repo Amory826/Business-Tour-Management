@@ -14,7 +14,8 @@
         tools:targetApi="31">
         <activity
             android:name=".View.LoadScreen"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="ExtraText">
 
         </activity>
         <activity android:name=".View.LoginActivity" />

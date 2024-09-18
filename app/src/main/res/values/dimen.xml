@@ -8,4 +8,5 @@
     <dimen name="padding20dp">20dp</dimen>
     <dimen name="dm24dp">24dp</dimen>
     <dimen name="dm8dp">8dp</dimen>
+    <dimen name="dm4dp">4dp</dimen>
 </resources>

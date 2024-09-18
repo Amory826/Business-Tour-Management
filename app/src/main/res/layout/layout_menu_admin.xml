@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
     android:background="@color/backgroundAdmin"
     android:foregroundTint="@color/colorAccent"
     android:scrollbarThumbHorizontal="@null"
@@ -15,9 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="55dp">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -31,8 +29,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:backgroundTint="@color/colorBackgroundToolBar"
-                android:foregroundGravity="left"
-                android:padding="@dimen/padding4dp"
                 android:scaleX="0.75"
                 android:scaleY="0.75"
                 android:src="@drawable/iconuser" />
@@ -42,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/Admin"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="@dimen/dm24dp"
                 android:textStyle="bold" />
 
@@ -52,13 +48,10 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="@dimen/padding12dp"
                 android:backgroundTint="@color/colorBackgroundToolBar"
-                android:foregroundGravity="left"
                 android:padding="@dimen/padding4dp"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
                 android:src="@drawable/iconmenu" />
-
-
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.core.widget.NestedScrollView
@@ -67,40 +60,115 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnTour"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dm8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorAccent"
+                        android:paddingTop="@dimen/padding12dp"
+                        android:paddingBottom="@dimen/padding12dp"
+                        android:text="@string/The_tour_is_organized"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="0dp" />
+
+                    <Button
+                        android:id="@+id/btnCompanyWithSchool"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dm8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="@string/CompanyWithSchool"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="0dp"
+                        android:paddingTop="@dimen/padding12dp"
+                        android:paddingBottom="@dimen/padding12dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnStudentManagement"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dm8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="@string/StudentManagement"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="0dp"
+                        android:paddingTop="@dimen/padding12dp"
+                        android:paddingBottom="@dimen/padding12dp"
+                        />
+
+                    <Button
+                        android:id="@+id/btnTeacherManagement"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dm8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="@string/TeacherManagement"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:cornerRadius="0dp"
+                        android:paddingTop="@dimen/padding12dp"
+                        android:paddingBottom="@dimen/padding12dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dm4dp"
+                    android:background="@color/white"
+                    android:layout_margin="@dimen/padding12dp"
                     />
 
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:foreground="@drawable/custom_btn_admin"
-                        android:text="Button"
-                        android:layout_margin="@dimen/dm8dp"/>
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:foreground="@drawable/custom_btn_admin"
-                        android:text="Button"
-                        android:layout_margin="@dimen/dm8dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="404dp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:gravity="center_vertical"
+                        android:text="@string/TourManagement"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/padding20dp"
+                        android:textStyle="bold" />
+
+                    <ListView
+                        android:id="@+id/listTour"
+                        android:layout_width="match_parent"
+                        android:layout_height="341dp"
+                        android:layout_marginLeft="@dimen/padding12dp"
+                        android:layout_marginTop="@dimen/padding20dp"
+                        android:layout_marginRight="@dimen/padding12dp" />
                 </LinearLayout>
 
             </LinearLayout>
 
+
+
         </androidx.core.widget.NestedScrollView>
-
-
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

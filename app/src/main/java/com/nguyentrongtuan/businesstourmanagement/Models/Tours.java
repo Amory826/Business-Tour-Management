@@ -3,12 +3,12 @@ package com.nguyentrongtuan.businesstourmanagement.Models;
 import java.util.List;
 
 public class Tours {
-    private long available;
-    private String code;
-    private String description;
     private long id;
-    private String idCompany;
+    private String code;
+    private long available;
     private String idTeacher;
+    private String idCompany;
+    private String description;
     private String name;
     private String startDate;
     private List<Students> studentsList;
