@@ -64,12 +64,9 @@ public class LoginActivity extends AppCompatActivity {
                                     acc = child.getValue(Accounts.class);
                                     if(username.equals(acc.getUsername()) && password.equals(acc.getPassword())){
                                         dem ++;
-                                        Log.d("Login", acc.getRole());
                                         break;
                                     }
                                 }
-
-                                Log.d("Login", acc.getRole());
 
                                 if(dem == 0){
                                     Toast.makeText(getApplicationContext(), "Tài khoản hoặc mật khẩu không chính xác!", Toast.LENGTH_SHORT).show();

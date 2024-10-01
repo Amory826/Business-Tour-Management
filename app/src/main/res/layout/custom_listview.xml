@@ -1,92 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/backgroundAdapter"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding12dp"
+    app:layout_goneMarginBottom="@dimen/padding20dp">
+
     <TextView
         android:id="@+id/txtNameTour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/company_name"
-        android:textSize="26sp"
-        android:textStyle="bold"
         android:padding="@dimen/padding12dp"
-        />
+        android:text="@string/company_name"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thông tin chi tiết: "
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:padding="@dimen/dm8dp"
+        android:text="Thông tin chi tiết: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
 
-        />
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/txtDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thời gian bắt đầu: 19-09-2024 "
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="@dimen/dm8dp"
-            />
-        <View
-            android:layout_width="@dimen/padding2dp"
-            android:layout_height="match_parent"
-            android:background="@color/black"
-            android:layout_marginTop="@dimen/dm8dp"
-            android:layout_marginBottom="@dimen/dm8dp"
-            />
+        android:padding="@dimen/dm8dp"
+        android:text="Thời gian bắt đầu: 19-09-2024 "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtAvailable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Số lượng: 30"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:padding="@dimen/dm8dp"
-            />
-
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/txtAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dm8dp"
+        android:text="Số lượng: 30"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Số sinh viên đã tham gia:"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:padding="@dimen/dm8dp"
-        />
+        android:text="Số sinh viên đã tham gia:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtTeacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Giáo viên: Nguyễn Thị Lan:"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:padding="@dimen/dm8dp"
-        />
+        android:text="Giáo viên: Nguyễn Thị Lan:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtCompany"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Công ty: Nguyễn Thị Lan:"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:padding="@dimen/dm8dp"
-        />
+        android:text="Công ty: Nguyễn Thị Lan:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

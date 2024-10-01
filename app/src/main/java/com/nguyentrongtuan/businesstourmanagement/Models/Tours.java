@@ -1,5 +1,18 @@
 package com.nguyentrongtuan.businesstourmanagement.Models;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackStudent;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTours;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tours {
@@ -11,13 +24,19 @@ public class Tours {
     private String description;
     private String name;
     private String startDate;
-    private List<Students> studentsList;
+    private List<Tours> studentsList ;
+
+
+
+    DatabaseReference databaseReference;
+
 
     public Tours() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     public Tours(long available, String code, String description, long id, String idCompany,
-                 String idTeacher, String name, String startDate, List<Students> studentsList) {
+                 String idTeacher, String name, String startDate, List<Tours> studentsList) {
         this.available = available;
         this.code = code;
         this.description = description;
@@ -93,11 +112,54 @@ public class Tours {
         this.startDate = startDate;
     }
 
-    public List<Students> getStudentsList() {
-        return studentsList;
+    public void getStudentsList(int index, final FirebaseCallbackStudent callback) {
+        databaseReference.child("tbl_tour").child(index + "").child("studentList")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        List<Students> students = new ArrayList<>();
+                        for (DataSnapshot exp : snapshot.getChildren()) {
+                            Students stu = exp.getValue(Students.class);
+                            if (stu != null) {
+                                students.add(stu);
+                            }
+                        }
+                        callback.onCallback(students);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("FirebaseError", "Failed to load students.", error.toException());
+                        callback.onCallback(new ArrayList<>()); // Trả về danh sách rỗng nếu có lỗi
+                    }
+                });
     }
 
-    public void setStudentsList(List<Students> studentsList) {
+
+    public void setStudentsList(List<Tours> studentsList) {
         this.studentsList = studentsList;
+    }
+
+
+    public void getAllListTour(final FirebaseCallbackTours callback){
+        databaseReference.child("tbl_tour").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Tours> tourList = new ArrayList<>();
+                for (DataSnapshot exp : snapshot.getChildren()){
+                    Tours tour = exp.getValue(Tours.class);
+                    if(tour != null){
+                        tourList.add(tour);
+                    }
+                }
+                callback.onCallback(tourList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Failed to load tours.", error.toException());
+                callback.onCallback(new ArrayList<>()); // Return an empty list on error
+            }
+        });
     }
 }

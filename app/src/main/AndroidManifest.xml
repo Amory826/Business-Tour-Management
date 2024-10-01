@@ -16,7 +16,6 @@
             android:name=".View.LoadScreen"
             android:exported="true"
             tools:ignore="ExtraText">
-
         </activity>
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".View.MenuStudentActivity" />
@@ -29,7 +28,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.MenuTeacherActivity" />
+        <activity android:name=".View.MenuTeacherActivity"
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

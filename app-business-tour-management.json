@@ -250,14 +250,86 @@
   "tbl_tour": [
     {
       "id": 1,
-      "idTeacher": 1,
+      "idTeacher": "GV01",
       "idCompany": "COMP001",
       "name": "City Tour",
       "available": 20,
       "code": "TOUR001",
       "description": "A tour around the city",
       "startDate": "2024-09-01",
-      "student":[
+      "studentList":[
+        {
+          "id": 1,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV01",
+          "name": "Nguyễn Trọng Tuấn",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 2,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV02",
+          "name": "Nguyễn Tài Tuệ",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 3,
+          "idAccount": 1,
+          "idClass": "KTPM03",
+          "code": "SV03",
+          "name": "Đào Ngọc Văn",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 4,
+          "idAccount": 1,
+          "idClass": "KTPM01",
+          "code": "SV04",
+          "name": "Nguyễn Thị Trang",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        },
+        {
+          "id": 5,
+          "idAccount": 1,
+          "idClass": "KTPM02",
+          "code": "SV05",
+          "name": "Nguyễn Thị Khánh Trang",
+          "address": "123 Main St",
+          "birthDate": "1995-01-01",
+          "email": "john@example.com",
+          "imagePath": "/images/john.jpg",
+          "phoneNumber": "123456789"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "idTeacher": "GV02",
+      "idCompany": "COMP002",
+      "name": "City Tour",
+      "available": 20,
+      "code": "TOUR001",
+      "description": "A tour around the city",
+      "startDate": "2024-09-01",
+      "studentList":[
         {
           "id": 1,
           "idAccount": 1,

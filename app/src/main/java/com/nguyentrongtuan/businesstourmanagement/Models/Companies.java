@@ -1,5 +1,19 @@
 package com.nguyentrongtuan.businesstourmanagement.Models;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackCompany;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Companies {
     private long id;
     private String code;
@@ -9,7 +23,10 @@ public class Companies {
     private String description;
     private String email;
 
+    DatabaseReference databaseReference;
+
     public Companies() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     public Companies(long id, String code, String name, String address, String phoneNumber, String description, String email) {
@@ -76,5 +93,38 @@ public class Companies {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void getAllListCompany(final FirebaseCallbackCompany callback){
+        databaseReference.child("tbl_company").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Companies> companiesList = new ArrayList<>();
+                for(DataSnapshot node : snapshot.getChildren()){
+                    Companies company = node.getValue(Companies.class);
+                    if( company != null)
+                        companiesList.add(company);
+                }
+
+                callback.onCallback(companiesList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Failed to load tours.", error.toException());
+                callback.onCallback(new ArrayList<>()); // Return an empty list on error
+            }
+        });
+    }
+
+
+    public Companies getACompany(List<Companies> list, String idCompany){
+        for (Companies company : list){
+            if(company.getCode().equals(idCompany)){
+                Log.d("Login", company.getName() );
+                return company;
+            }
+        }
+        return null;
     }
 }

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 public class MenuTeacherActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,27 +1,19 @@
+// setAdapterListTour.java
 package com.nguyentrongtuan.businesstourmanagement.Controller;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.nguyentrongtuan.businesstourmanagement.DAO.CompanyDAO;
-import com.nguyentrongtuan.businesstourmanagement.DAO.TeacherDAO;
-import com.nguyentrongtuan.businesstourmanagement.DAO.ToursDAO;
 import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
+import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +24,6 @@ public class setAdapterListTour extends BaseAdapter {
 
     public setAdapterListTour(int layout, Context context, List<Tours> list ) {
         this.list = list;
-        Log.d("Login", "List adapter" + this.list.size());
         this.layout = layout;
         this.context = context;
     }
@@ -43,75 +34,133 @@ public class setAdapterListTour extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public Tours getItem(int position) {
+        return list.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position; // Or use a unique ID from your Tours model
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        convertView = inflater.inflate(layout, null);
-
-        // Ánh xạ view
-        TextView txtNameTour, txtDescription, txtDate, txtAvailable,
-                txtQuantity, txtTeacher, txtCompany;
-
-        txtNameTour = convertView.findViewById(R.id.txtNameTour);
-        txtDescription = convertView.findViewById(R.id.txtDescription);
-        txtDate = convertView.findViewById(R.id.txtDate);
-        txtAvailable = convertView.findViewById(R.id.txtAvailable);
-        txtQuantity = convertView.findViewById(R.id.txtQuantity);
-        txtTeacher = convertView.findViewById(R.id.txtTeacher);
-        txtCompany = convertView.findViewById(R.id.txtCompany);
-
-        // Kết nối CSDL
-        CompanyDAO companyDAO = new CompanyDAO();
-        TeacherDAO teacherDAO = new TeacherDAO();
-
-        List<Companies> companiesList = companyDAO.getAllCompany();
-        List<Teachers> teachersList = teacherDAO.getAllTeacher();
-
-        Tours t = list.get(position);
-
-        //gán giá trị cho các textview
-
-        txtNameTour.setText(t.getName());
-        txtDescription.setText("Chi tiết: " + t.getDescription());
-        txtAvailable.setText("Số lượng: " + t.getAvailable());
-        txtQuantity.setText("Số sinh viên đã đăng ký: " + t.getStudentsList().size());
-
-        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-        try {
-            // Chuyển chuỗi thành đối tượng Date
-            Date date = inputFormat.parse(t.getStartDate());
-
-            // Định dạng lại ngày để hiển thị theo "dd-MM-yyyy"
-            SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
-            String formattedDate = outputFormat.format(date);
-
-            // Hiển thị ngày lên TextView
-            txtDate.setText("Thời gian bắt đầu: " + formattedDate);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        ViewHolder holder;
+        if (convertView == null) {
+            LayoutInflater inflater = LayoutInflater.from(context);
+            convertView = inflater.inflate(layout, parent, false);
+            holder = new ViewHolder();
+            holder.txtNameTour = convertView.findViewById(R.id.txtNameTour);
+            holder.txtDescription = convertView.findViewById(R.id.txtDescription);
+            holder.txtDate = convertView.findViewById(R.id.txtDate);
+            holder.txtAvailable = convertView.findViewById(R.id.txtAvailable);
+            holder.txtQuantity = convertView.findViewById(R.id.txtQuantity);
+            holder.txtTeacher = convertView.findViewById(R.id.txtTeacher);
+            holder.txtCompany = convertView.findViewById(R.id.txtCompany);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        Companies exp = companyDAO.getACompany(t.getIdCompany(), companiesList);
+        // Get the current tour
+        Tours t = getItem(position);
+        if (t != null) {
+            holder.txtNameTour.setText(t.getName());
+            holder.txtDescription.setText("Chi tiết: " + t.getDescription());
+            holder.txtAvailable.setText("Số lượng: " + t.getAvailable());
 
-        txtCompany.setText("Công ty: "  + exp.getName());
+            // Đặt giá trị mặc định ban đầu cho số lượng sinh viên
+            holder.txtQuantity.setText("Số sinh viên đã đăng ký: Đang tải...");
 
-        Teachers tea = teacherDAO.getATeacher(t.getIdTeacher(), teachersList);
-        txtCompany.setText("Giáo viên: "  + tea.getName());
+            // Lấy danh sách sinh viên qua callback
+            t.getStudentsList(position, new FirebaseCallbackStudent() {
+                @Override
+                public void onCallback(List<Students> list) {
+                    if (list != null && !list.isEmpty()) {
+                        holder.txtQuantity.setText("Số sinh viên đã đăng ký: " + list.size());
+                    } else {
+                        holder.txtQuantity.setText("Số sinh viên đã đăng ký: 0");
+                    }
+                }
+            });
 
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+            try {
+                // Convert string to Date
+                Date date = inputFormat.parse(t.getStartDate());
+
+                // Format Date to desired format
+                SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
+                String formattedDate = outputFormat.format(date);
+
+                // Set formatted date
+                holder.txtDate.setText("Ngày bắt đầu: " + formattedDate);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                holder.txtDate.setText("Thời gian bắt đầu: N/A");
+            }
+
+            // Fetch teacher and company information
+            Teachers teacher = new Teachers();
+            Companies company = new Companies();
+
+            List<Companies> listCompany = new ArrayList<>();
+            List<Teachers> listTeacher = new ArrayList<>();
+
+            teacher.getAllListTeacher(new FirebaseCallbackTeacher() {
+                @Override
+                public void onCallback(List<Teachers> list) {
+                    if (list != null && !list.isEmpty()) {
+                        listTeacher.addAll(list);
+
+                        Teachers temp = teacher.getATeacher(listTeacher, t.getIdTeacher());
+                        if(temp != null){
+                            holder.txtTeacher.setText("Giáo viên: "  + temp.getName());
+                        } else {
+                            holder.txtTeacher.setText("Giáo viên: Không có giáo viên phụ trách.");
+                        }
+
+//                        Log.d("Login", "List after fetching teacher : " + listTeacher.size());
+                    } else {
+                        Log.d("Login", "No tours found.");
+                        // Optionally, handle the empty state (e.g., show a message)
+                    }
+                }
+            });
+
+            company.getAllListCompany(new FirebaseCallbackCompany() {
+                @Override
+                public void onCallback(List<Companies> listTemp) {
+                    if (listTemp != null && !listTemp.isEmpty()) {
+                        listCompany.addAll(listTemp);
+
+                        Companies temp = company.getACompany(listCompany, t.getIdCompany());
+                        if(temp != null){
+                            holder.txtCompany.setText("Công ty: "  + temp.getName());
+                        } else {
+                            holder.txtCompany.setText("Công ty: Chưa xác định.");
+                        }
+                    } else {
+                        Log.d("Login", "No tours found.");
+                    }
+                }
+            });
+        }
+        convertView.getPaddingBottom();
         return convertView;
+    }
+
+
+    // ViewHolder pattern to optimize list performance
+    private static class ViewHolder {
+        TextView txtNameTour;
+        TextView txtDescription;
+        TextView txtDate;
+        TextView txtAvailable;
+        TextView txtQuantity;
+        TextView txtTeacher;
+        TextView txtCompany;
     }
 }

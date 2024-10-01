@@ -1,5 +1,19 @@
 package com.nguyentrongtuan.businesstourmanagement.Models;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTeacher;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Teachers {
     private long id;
     private long idAccount;
@@ -11,7 +25,10 @@ public class Teachers {
     private String name;
     private String address;
 
+    DatabaseReference databaseReference;
+
     public Teachers() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
     public Teachers(long id, long idAccount, String code, String birthDate, String phoneNumber,
@@ -97,6 +114,38 @@ public class Teachers {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void getAllListTeacher(final FirebaseCallbackTeacher callback){
+        databaseReference.child("tbl_teacher").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Teachers> teachersList = new ArrayList<>();
+                for(DataSnapshot node : snapshot.getChildren()){
+                    Teachers teacher = node.getValue(Teachers.class);
+                    if( teacher != null)
+                        teachersList.add(teacher);
+                }
+
+                callback.onCallback(teachersList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("FirebaseError", "Failed to load tours.", error.toException());
+                callback.onCallback(new ArrayList<>()); // Return an empty list on error
+            }
+        });
+    }
+
+
+    public Teachers getATeacher(List<Teachers> list, String idTeacher){
+        for (Teachers teacher : list){
+            if(teacher.getCode().equals(idTeacher)){
+                return teacher;
+            }
+        }
+        return null;
     }
 
 }

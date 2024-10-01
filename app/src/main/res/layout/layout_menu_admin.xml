@@ -53,11 +53,6 @@
                 android:scaleY="0.5"
                 android:src="@drawable/iconmenu" />
         </androidx.appcompat.widget.Toolbar>
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -142,33 +137,40 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="404dp"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/dm4dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|center_vertical"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:text="@string/TourManagement"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/padding20dp"
                         android:textStyle="bold" />
 
+                    <ProgressBar
+                        android:id="@+id/loadListView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/padding12dp"
+
+                        />
+
                     <ListView
                         android:id="@+id/listTour"
                         android:layout_width="match_parent"
-                        android:layout_height="341dp"
-                        android:layout_marginLeft="@dimen/padding12dp"
-                        android:layout_marginTop="@dimen/padding20dp"
-                        android:layout_marginRight="@dimen/padding12dp" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/padding12dp"
+                        android:layout_marginLeft="@dimen/dm8dp"
+                        android:layout_marginRight="@dimen/dm8dp"
+                        />
                 </LinearLayout>
 
             </LinearLayout>
-
-
-
-        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
