@@ -10,4 +10,7 @@
     <color name="colorBackgroundToolBar">#BF8E8E</color>
     <color name="backgroundAdmin">#989494</color>
     <color name="backgroundAdapter">#E2C0C0</color>
+    <color name="backgroundNavigation">#009688</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="naviview">#494242</color>
 </resources>

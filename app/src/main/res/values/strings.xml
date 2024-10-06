@@ -12,7 +12,14 @@
     <string name="StudentManagement">Sinh viên được quản lý</string>
     <string name="TeacherManagement">Giáo viên đại diện nhà trường</string>
     <string name="TourManagement">Các chuyến tham quan doanh nghiệp</string>
-
-
+    <string name="BusinessTourManagement">Quản lý tham quan doanh nghiệp</string>
+    <string name="StudentInformationManagement">Quản lý thông tin sinh viên</string>
+    <string name="TeacherInformationManagement">Quản lý thông tin giáo viên</string>
+    <string name="BusinessInformationManagement">Quản lý thông tin doanh nghiệp</string>
+    <string name="ClassroomInformationManagement">Quản lý thông tin lớp học</string>
+    <string name="SystemManagement">Quản lý hệ thống</string>
+    <string name="home">Trang chủ</string>
+    <string name="naviDrawerOpen">Mở</string>
+    <string name="naviDrawerClose">Đóng</string>
 
 </resources>

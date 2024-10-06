@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dm200dp"
+    android:background="@color/backgroundNavigation"
+    android:orientation="vertical"
+    android:padding="@dimen/padding20dp"
+    android:gravity="bottom"
+    >
+    
+    <ImageView
+        android:layout_width="@dimen/dm80dp"
+        android:layout_height="@dimen/dm80dp"
+        android:src="@drawable/iconuser"
+        android:background="@drawable/custom_image_user"
+        android:scaleType="centerCrop"
+        />
+    
+    <TextView
+        android:id="@+id/txtNameUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nguyễn Trọng Tuấn"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/dm8dp"
+
+        />
+
+    <TextView
+        android:id="@+id/txtEmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tuan8826938826@gmail.com"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/dm8dp"
+
+        />
+    
+</LinearLayout>

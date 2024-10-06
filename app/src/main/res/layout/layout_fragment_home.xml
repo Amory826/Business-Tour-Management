@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/backgroundAdmin"
+    android:paddingTop="@dimen/padding20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnTour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dm8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:paddingTop="@dimen/padding12dp"
+            android:paddingBottom="@dimen/padding12dp"
+            android:text="@string/The_tour_is_organized"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btnCompanyWithSchool"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dm8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/CompanyWithSchool"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            android:paddingTop="@dimen/padding12dp"
+            android:paddingBottom="@dimen/padding12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnStudentManagement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dm8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/StudentManagement"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            android:paddingTop="@dimen/padding12dp"
+            android:paddingBottom="@dimen/padding12dp"
+            />
+
+        <Button
+            android:id="@+id/btnTeacherManagement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dm8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/TeacherManagement"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            android:paddingTop="@dimen/padding12dp"
+            android:paddingBottom="@dimen/padding12dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dm4dp"
+        android:background="@color/white"
+        android:layout_margin="@dimen/padding12dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/dm4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:text="@string/TourManagement"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/padding20dp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/loadListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/padding12dp"
+
+            />
+
+        <ListView
+            android:id="@+id/listTour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding12dp"
+            android:layout_marginLeft="@dimen/dm8dp"
+            android:layout_marginRight="@dimen/dm8dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
