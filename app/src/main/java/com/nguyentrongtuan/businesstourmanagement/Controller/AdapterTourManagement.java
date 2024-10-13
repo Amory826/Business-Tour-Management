@@ -1,11 +1,14 @@
-// setAdapterListTour.java
 package com.nguyentrongtuan.businesstourmanagement.Controller;
 
-import android.content.Context;
 import android.util.Log;
-import android.view.*;
-import android.widget.BaseAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
 import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
@@ -17,53 +20,54 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class setAdapterListTour extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<Tours> list;
+public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourManagement.ViewHolder> {
 
-    public setAdapterListTour(int layout, Context context, List<Tours> list ) {
-        this.list = list;
-        this.layout = layout;
-        this.context = context;
+    private List<Tours> listTours;
+    private int resource;
+
+    public AdapterTourManagement() {
+
     }
 
-    @Override
-    public int getCount() {
-        return list.size();
+    public AdapterTourManagement(List<Tours> listTours, int resource) {
+        this.listTours = listTours;
+        this.resource = resource;
     }
 
-    @Override
-    public Tours getItem(int position) {
-        return list.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position; // Or use a unique ID from your Tours model
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(layout, parent, false);
-            holder = new ViewHolder();
-            holder.txtNameTour = convertView.findViewById(R.id.txtNameTour);
-            holder.txtDescription = convertView.findViewById(R.id.txtDescription);
-            holder.txtDate = convertView.findViewById(R.id.txtDate);
-            holder.txtAvailable = convertView.findViewById(R.id.txtAvailable);
-            holder.txtQuantity = convertView.findViewById(R.id.txtQuantity);
-            holder.txtTeacher = convertView.findViewById(R.id.txtTeacher);
-            holder.txtCompany = convertView.findViewById(R.id.txtCompany);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView txtNameTour;
+        TextView txtDescription;
+        TextView txtDate;
+        TextView txtAvailable;
+        TextView txtQuantity;
+        TextView txtTeacher;
+        TextView txtCompany;
+        View line;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtNameTour = itemView.findViewById(R.id.txtNameTour);
+            txtDescription = itemView.findViewById(R.id.txtDescription);
+            txtDate = itemView.findViewById(R.id.txtDate);
+            txtAvailable = itemView.findViewById(R.id.txtAvailable);
+            txtQuantity = itemView.findViewById(R.id.txtQuantity);
+            txtTeacher = itemView.findViewById(R.id.txtTeacher);
+            txtCompany = itemView.findViewById(R.id.txtCompany);
+            line = itemView.findViewById(R.id.line);
         }
+    }
 
-        // Get the current tour
-        Tours t = getItem(position);
+    @NonNull
+    @Override
+    public AdapterTourManagement.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
+
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull AdapterTourManagement.ViewHolder holder, int position) {
+        Tours t = listTours.get(position);
         if (t != null) {
             holder.txtNameTour.setText(t.getName());
             holder.txtDescription.setText("Chi tiết: " + t.getDescription());
@@ -148,19 +152,14 @@ public class setAdapterListTour extends BaseAdapter {
                 }
             });
         }
-        convertView.getPaddingBottom();
-        return convertView;
+        if(position == listTours.size()-1)
+            holder.line.setVisibility(View.GONE);
+    }
+
+    @Override
+    public int getItemCount() {
+        return listTours.size();
     }
 
 
-    // ViewHolder pattern to optimize list performance
-    private static class ViewHolder {
-        TextView txtNameTour;
-        TextView txtDescription;
-        TextView txtDate;
-        TextView txtAvailable;
-        TextView txtQuantity;
-        TextView txtTeacher;
-        TextView txtCompany;
-    }
 }

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundAdmin"
+    android:orientation="vertical"
+    android:padding="@dimen/padding20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/custom_editext_tour"
+                android:hint="@string/find"
+                android:layout_marginRight="@dimen/padding12dp"
+                />
+
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="@dimen/padding40dp"
+                android:layout_height="@dimen/padding40dp"
+                android:src="@drawable/iconsearch"
+                android:background="@color/transparent"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TourManagement"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+            <ProgressBar
+                android:id="@+id/loadListView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding12dp"
+
+                />
+
+            <TextView
+                android:id="@+id/txtNoTour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="@string/noTour"
+                android:layout_marginTop="@dimen/padding40dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listTourManagement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/padding20dp"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

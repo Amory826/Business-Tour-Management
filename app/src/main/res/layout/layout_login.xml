@@ -77,12 +77,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="@dimen/padding40dp">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/padding2dp"
-                android:layout_marginRight="@dimen/padding40dp"
                 android:layout_marginLeft="@dimen/padding40dp"
-                android:background="@color/colorAccent"/>
+                android:layout_marginRight="@dimen/padding40dp"
+                android:background="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/txtName"

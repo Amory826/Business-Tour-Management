@@ -21,5 +21,7 @@
     <string name="home">Trang chủ</string>
     <string name="naviDrawerOpen">Mở</string>
     <string name="naviDrawerClose">Đóng</string>
+    <string name="find">Tìm kiếm</string>
+    <string name="noTour">Không có tour nào được đăng ký.</string>
 
 </resources>
