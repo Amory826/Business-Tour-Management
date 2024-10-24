@@ -15,13 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTours;
-import com.nguyentrongtuan.businesstourmanagement.Controller.AdapterListTour;
+import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterListTour;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
-import com.nguyentrongtuan.businesstourmanagement.View.LoginActivity;
-import com.nguyentrongtuan.businesstourmanagement.View.MenuAdminActivity;
-import com.nguyentrongtuan.businesstourmanagement.View.MenuStudentActivity;
-import com.nguyentrongtuan.businesstourmanagement.View.OrganizedTourActivity;
+import com.nguyentrongtuan.businesstourmanagement.View.ShowData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +49,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
             public void onCallback(List<Tours> fetchedList) {
                 if (fetchedList != null && !fetchedList.isEmpty()) {
                     list.addAll(fetchedList);
-                    adapter = new AdapterListTour(R.layout.custom_listview, view.getContext(), list);
+                    adapter = new AdapterListTour(R.layout.custom_information_tour, view.getContext(), list);
                     listTour.setAdapter(adapter);
                     loadListView.setVisibility(View.GONE);
                     adapter.notifyDataSetChanged();
@@ -71,9 +68,28 @@ public class FragmentHome extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        String id = "";
+
         if(v.getId() == R.id.btnTour){
-            Intent iBtnTour = new Intent(getActivity(), OrganizedTourActivity.class);
+            id = "btnTour";
+            Intent iBtnTour = new Intent(getActivity(), ShowData.class);
+            iBtnTour.putExtra("id", id);
             startActivity(iBtnTour);
+        }else if(v.getId() == R.id.btnCompanyWithSchool){
+            id = "btnCompanyWithSchool";
+            Intent iBtnCompanyWithSchool = new Intent(getActivity(), ShowData.class);
+            iBtnCompanyWithSchool.putExtra("id", id);
+            startActivity(iBtnCompanyWithSchool);
+        } else if (v.getId() == R.id.btnStudentManagement) {
+            id = "btnStudentManagement";
+            Intent iBtnStudentManagement = new Intent(getActivity(), ShowData.class);
+            iBtnStudentManagement.putExtra("id", id);
+            startActivity(iBtnStudentManagement);
+        }else if (v.getId() == R.id.btnTeacherManagement) {
+            id = "btnTeacherManagement";
+            Intent iBtnTeacherManagement = new Intent(getActivity(), ShowData.class);
+            iBtnTeacherManagement.putExtra("id", id);
+            startActivity(iBtnTeacherManagement);
         }
     }
 }

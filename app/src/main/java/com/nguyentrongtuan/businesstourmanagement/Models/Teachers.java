@@ -25,11 +25,11 @@ public class Teachers {
     private String name;
     private String address;
 
-    DatabaseReference databaseReference;
+        DatabaseReference databaseReference;
 
-    public Teachers() {
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-    }
+        public Teachers() {
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+        }
 
     public Teachers(long id, long idAccount, String code, String birthDate, String phoneNumber,
                     String description, String email, String name, String address) {

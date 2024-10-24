@@ -1,11 +1,15 @@
 // setAdapterListTour.java
-package com.nguyentrongtuan.businesstourmanagement.Controller;
+package com.nguyentrongtuan.businesstourmanagement.Adapter;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.*;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackCompany;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackStudent;
+import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTeacher;
 import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
 import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
@@ -121,8 +125,6 @@ public class AdapterListTour extends BaseAdapter {
                         } else {
                             holder.txtTeacher.setText("Giáo viên: Không có giáo viên phụ trách.");
                         }
-
-//                        Log.d("Login", "List after fetching teacher : " + listTeacher.size());
                     } else {
                         Log.d("Login", "No tours found.");
                         // Optionally, handle the empty state (e.g., show a message)
