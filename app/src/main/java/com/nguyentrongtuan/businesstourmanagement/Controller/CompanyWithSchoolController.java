@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterCompanyWithSchool;
-import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterTourManagement;
 import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
-import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class CompanyWithSchoolController {
         this.context = context;
     }
 
-    public void getTourList(RecyclerView recyclerView, ProgressBar loadListView, TextView txtNoTour){
+    public void getTourList(RecyclerView recyclerView, ProgressBar loadListView, TextView txtNoTour) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         final List<Companies> list = new ArrayList<>();
@@ -37,13 +35,13 @@ public class CompanyWithSchoolController {
             public void onCallback(List<Companies> fetchedList) {
                 if (fetchedList != null && !fetchedList.isEmpty()) {
                     list.addAll(fetchedList);
-                    if(list.size() == 0){
+                    if (list.size() == 0) {
                         txtNoTour.setVisibility(View.VISIBLE);
                         txtNoTour.setText("Không có công ty nào.");
                         loadListView.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
-                    }else {
-                        if(recyclerView.getVisibility() == View.GONE){
+                    } else {
+                        if (recyclerView.getVisibility() == View.GONE) {
                             recyclerView.setVisibility(View.VISIBLE);
                         }
                         txtNoTour.setVisibility(View.GONE);
@@ -60,7 +58,7 @@ public class CompanyWithSchoolController {
         });
     }
 
-    public void getTourListByName(RecyclerView recyclerView, String nameTour, ProgressBar loadListView, TextView txtNoTour){
+    public void getTourListByName(RecyclerView recyclerView, String nameTour, ProgressBar loadListView, TextView txtNoTour) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
         txtNoTour.setVisibility(View.GONE);
@@ -78,14 +76,14 @@ public class CompanyWithSchoolController {
                             companyListByName.add(t);
                         }
                     }
-                    if(companyListByName.size() == 0){
+                    if (companyListByName.size() == 0) {
                         txtNoTour.setVisibility(View.VISIBLE);
                         loadListView.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.GONE);
                         txtNoTour.setText("Không có công ty nào có tên chứa " + nameTour + ".");
 
-                    }else {
-                        if(recyclerView.getVisibility() == View.GONE)
+                    } else {
+                        if (recyclerView.getVisibility() == View.GONE)
                             recyclerView.setVisibility(View.VISIBLE);
                         adapter = new AdapterCompanyWithSchool(companyListByName, R.layout.custom_information_company);
                         recyclerView.setAdapter(adapter);

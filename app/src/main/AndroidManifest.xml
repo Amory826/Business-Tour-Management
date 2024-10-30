@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".View.MenuStudentActivity" />
-        <activity android:name=".View.MenuAdminActivity"
+        <activity
+            android:name=".View.MenuAdminActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,11 +31,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.MenuTeacherActivity"
+        <activity
+            android:name=".View.MenuTeacherActivity"
             android:exported="true">
+
         </activity>
-        <activity android:name=".View.ShowData"
+        <activity
+            android:name=".View.ShowData"
             android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".View.example"
+            android:exported="true">
+
         </activity>
     </application>
 

@@ -25,11 +25,11 @@ public class Teachers {
     private String name;
     private String address;
 
-        DatabaseReference databaseReference;
+    DatabaseReference databaseReference;
 
-        public Teachers() {
-            databaseReference = FirebaseDatabase.getInstance().getReference();
-        }
+    public Teachers() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+    }
 
     public Teachers(long id, long idAccount, String code, String birthDate, String phoneNumber,
                     String description, String email, String name, String address) {
@@ -116,14 +116,14 @@ public class Teachers {
         this.address = address;
     }
 
-    public void getAllListTeacher(final FirebaseCallbackTeacher callback){
+    public void getAllListTeacher(final FirebaseCallbackTeacher callback) {
         databaseReference.child("tbl_teacher").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Teachers> teachersList = new ArrayList<>();
-                for(DataSnapshot node : snapshot.getChildren()){
+                for (DataSnapshot node : snapshot.getChildren()) {
                     Teachers teacher = node.getValue(Teachers.class);
-                    if( teacher != null)
+                    if (teacher != null)
                         teachersList.add(teacher);
                 }
 
@@ -139,13 +139,18 @@ public class Teachers {
     }
 
 
-    public Teachers getATeacher(List<Teachers> list, String idTeacher){
-        for (Teachers teacher : list){
-            if(teacher.getCode().equals(idTeacher)){
+    public Teachers getATeacher(List<Teachers> list, String idTeacher) {
+        for (Teachers teacher : list) {
+            if (teacher.getCode().equals(idTeacher)) {
                 return teacher;
             }
         }
         return null;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

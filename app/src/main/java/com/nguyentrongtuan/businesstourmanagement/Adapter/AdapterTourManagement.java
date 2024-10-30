@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourManagement.ViewHolder> {
+public class AdapterTourManagement extends RecyclerView.Adapter<AdapterTourManagement.ViewHolder> {
 
     private List<Tours> listTours;
     private int resource;
@@ -46,6 +46,7 @@ public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourMana
         TextView txtTeacher;
         TextView txtCompany;
         View line;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtNameTour = itemView.findViewById(R.id.txtNameTour);
@@ -123,8 +124,8 @@ public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourMana
                         listTeacher.addAll(list);
 
                         Teachers temp = teacher.getATeacher(listTeacher, t.getIdTeacher());
-                        if(temp != null){
-                            holder.txtTeacher.setText("Giáo viên: "  + temp.getName());
+                        if (temp != null) {
+                            holder.txtTeacher.setText("Giáo viên: " + temp.getName());
                         } else {
                             holder.txtTeacher.setText("Giáo viên: Không có giáo viên phụ trách.");
                         }
@@ -144,8 +145,8 @@ public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourMana
                         listCompany.addAll(listTemp);
 
                         Companies temp = company.getACompany(listCompany, t.getIdCompany());
-                        if(temp != null){
-                            holder.txtCompany.setText("Công ty: "  + temp.getName());
+                        if (temp != null) {
+                            holder.txtCompany.setText("Công ty: " + temp.getName());
                         } else {
                             holder.txtCompany.setText("Công ty: Chưa xác định.");
                         }
@@ -155,7 +156,7 @@ public class AdapterTourManagement  extends RecyclerView.Adapter<AdapterTourMana
                 }
             });
         }
-        if(position == listTours.size()-1)
+        if (position == listTours.size() - 1)
             holder.line.setVisibility(View.GONE);
     }
 

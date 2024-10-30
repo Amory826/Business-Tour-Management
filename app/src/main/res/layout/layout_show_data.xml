@@ -21,12 +21,11 @@
             <EditText
                 android:id="@+id/edtSearch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/padding40dp"
+                android:layout_marginRight="@dimen/padding12dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_editext_tour"
-                android:hint="@string/find"
-                android:layout_marginRight="@dimen/padding12dp"
-                />
+                android:hint="@string/find" />
 
             <ImageButton
                 android:id="@+id/btnSearch"

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/backgroundAdmin"
+    android:background="@color/white"
     android:paddingTop="@dimen/padding20dp">
 
     <LinearLayout
@@ -18,13 +18,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dm8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorAccent"
             android:paddingTop="@dimen/padding12dp"
             android:paddingBottom="@dimen/padding12dp"
             android:text="@string/The_tour_is_organized"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:cornerRadius="0dp" />
+            app:cornerRadius="0dp"
+            android:background="@color/background_button_tour_management"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnCompanyWithSchool"
@@ -32,13 +33,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dm8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorAccent"
             android:text="@string/CompanyWithSchool"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:cornerRadius="0dp"
             android:paddingTop="@dimen/padding12dp"
-            android:paddingBottom="@dimen/padding12dp"/>
+            android:paddingBottom="@dimen/padding12dp"
+            android:background="@color/background_button_tour_management"
+            app:backgroundTint="@null" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,14 +54,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dm8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorAccent"
             android:text="@string/StudentManagement"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:cornerRadius="0dp"
             android:paddingTop="@dimen/padding12dp"
             android:paddingBottom="@dimen/padding12dp"
-            />
+            android:background="@color/background_button_tour_management"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnTeacherManagement"
@@ -67,13 +69,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dm8dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorAccent"
             android:text="@string/TeacherManagement"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:cornerRadius="0dp"
             android:paddingTop="@dimen/padding12dp"
-            android:paddingBottom="@dimen/padding12dp"/>
+            android:paddingBottom="@dimen/padding12dp"
+            android:background="@color/background_button_tour_management"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
@@ -81,8 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dm4dp"
         android:background="@color/white"
-        android:layout_margin="@dimen/padding12dp"
-        />
+        android:layout_margin="@dimen/padding12dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,8 +118,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/padding12dp"
             android:layout_marginLeft="@dimen/dm8dp"
-            android:layout_marginRight="@dimen/dm8dp"
-            />
+            android:layout_marginRight="@dimen/dm8dp" />
     </LinearLayout>
 
 </LinearLayout>

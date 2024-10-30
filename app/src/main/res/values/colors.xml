@@ -13,4 +13,8 @@
     <color name="backgroundNavigation">#009688</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="naviview">#494242</color>
+    <color name="background_tour_management">#E2DBDB</color>
+    <color name="background_button_tour_management">#837E7E</color>
+    <color name="delete">#FF0000</color>
+
 </resources>

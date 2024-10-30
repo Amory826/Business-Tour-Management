@@ -23,5 +23,10 @@
     <string name="naviDrawerClose">Đóng</string>
     <string name="find">Tìm kiếm</string>
     <string name="noTour">Không có tour nào được đăng ký.</string>
+    <string name="add">Thêm</string>
+    <string name="addWithTourBusiness">Thêm tour tham quan</string>
+    <string name="CodeTour">Mã tour tham quan</string>
+    <string name="NameTour">Tên tour tham quan</string>
+    <string name="NameTeacher">Giáo viên</string>
 
 </resources>

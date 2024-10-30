@@ -8,13 +8,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ComponentActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentBusinessTourManagement;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentHome;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
@@ -82,27 +82,14 @@ public class MenuAdminActivity extends AppCompatActivity implements  NavigationV
                 replaceFragment(new FragmentHome());
                 mCurrentFragment = FRAGMENT_HOME;
             }
-        };
-//        switch (item.getItemId()){
-//            case R.id.home:
-//                if(mCurrentFragment != FRAGMENT_HOME){
-//                    replaceFragment(new FragmentHome());
-//                    mCurrentFragment = FRAGMENT_HOME;
-//                }
-//                break;
-//            case R.id.BusinessTourManagement:
-//                break;
-//            case R.id.StudentInformationManagement:
-//                break;
-//            case R.id.TeacherInformationManagement:
-//                break;
-//            case R.id.BusinessInformationManagement:
-//                break;
-//            case R.id.ClassroomInformationManagement:
-//                break;
-//            case R.id.SystemManagement:
-//                break;
-//        }
+        } else if ( id == R.id.BusinessTourManagement) {
+            if(mCurrentFragment != FRAGMENT_BusinessTourManagement){
+                replaceFragment(new FragmentBusinessTourManagement());
+                mCurrentFragment = FRAGMENT_BusinessTourManagement;
+            }
+        }
+
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

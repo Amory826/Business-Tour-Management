@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center"
+        android:text="@string/addWithTourBusiness"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingTop="@dimen/dm16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutCodeTour"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm60dp"
+            android:layout_marginTop="@dimen/dm16dp"
+            android:layout_marginLeft="@dimen/padding12dp"
+            android:layout_marginRight="@dimen/padding12dp"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="@dimen/padding2dp"
+            app:hintTextColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="@dimen/dm8dp"
+            app:boxCornerRadiusBottomStart="@dimen/dm8dp"
+            app:boxCornerRadiusTopEnd="@dimen/dm8dp"
+            app:boxCornerRadiusTopStart="@dimen/dm8dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCodeTour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/CodeTour"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNameTour"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm60dp"
+            android:layout_marginTop="@dimen/dm16dp"
+            android:layout_marginLeft="@dimen/padding12dp"
+            android:layout_marginRight="@dimen/padding12dp"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="@dimen/padding2dp"
+            app:hintTextColor="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="@dimen/dm8dp"
+            app:boxCornerRadiusBottomStart="@dimen/dm8dp"
+            app:boxCornerRadiusTopEnd="@dimen/dm8dp"
+            app:boxCornerRadiusTopStart="@dimen/dm8dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNameTour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/NameTour"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNameTeacher"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dm60dp"
+            android:layout_marginTop="@dimen/dm16dp"
+            android:layout_marginLeft="@dimen/padding12dp"
+            android:layout_marginRight="@dimen/padding12dp"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="@dimen/padding2dp"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="@dimen/dm8dp"
+            app:boxCornerRadiusBottomStart="@dimen/dm8dp"
+            app:boxCornerRadiusTopEnd="@dimen/dm8dp"
+            app:boxCornerRadiusTopStart="@dimen/dm8dp"
+            android:hint="@string/NameTeacher"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/edtNameTeacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
