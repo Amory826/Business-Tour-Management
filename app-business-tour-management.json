@@ -1,19 +1,19 @@
 {
   "tbl_account": [
     {
-      "id": 1,
+      "id": 0,
       "username": "student",
       "password": "student",
       "role": "student"
     },
     {
-      "id": 2,
+      "id": 1,
       "username": "teacher",
       "password": "teacher",
       "role": "teacher"
     },
     {
-      "id": 3,
+      "id": 2,
       "username": "admin",
       "password": "admin",
       "role": "admin"
@@ -21,25 +21,25 @@
   ],
   "tbl_class": [
     {
-      "id": 1,
+      "id": 0,
       "code": "KTPM01",
       "name": "Kỹ Thuật Phầm Mềm 1",
       "idTeacher": "GV01"
     },
     {
-      "id": 2,
+      "id": 1,
       "code": "KTPM02",
       "name": "Kỹ Thuật Phầm Mềm 2",
       "idTeacher": "GV01"
     },
     {
-      "id": 3,
+      "id": 2,
       "code": "KTPM03",
       "name": "Kỹ Thuật Phầm Mềm 3",
       "idTeacher": "GV02"
     },
     {
-      "id": 4,
+      "id": 3,
       "code": "KTPM04",
       "name": "Kỹ Thuật Phầm Mềm 4",
       "idTeacher": "GV02"
@@ -47,7 +47,7 @@
   ],
   "tbl_company": [
     {
-      "id": 1,
+      "id": 0,
       "code": "COMP001",
       "name": "Tech Solutions 01",
       "address": "456 Market St",
@@ -56,7 +56,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 2,
+      "id": 1,
       "code": "COMP002",
       "name": "Tech Solutions 02",
       "address": "456 Market St",
@@ -65,7 +65,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 3,
+      "id": 2,
       "code": "COMP003",
       "name": "Tech Solutions 03",
       "address": "456 Market St",
@@ -74,7 +74,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 4,
+      "id": 3,
       "code": "COMP004",
       "name": "Tech Solutions 04",
       "address": "456 Market St",
@@ -83,7 +83,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 5,
+      "id": 4,
       "code": "COMP005",
       "name": "Tech Solutions 05",
       "address": "456 Market St",
@@ -92,7 +92,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 6,
+      "id": 5,
       "code": "COMP006",
       "name": "Tech Solutions 06",
       "address": "456 Market St",
@@ -103,7 +103,7 @@
   ],
   "tbl_student": [
     {
-      "id": 1,
+      "id": 0,
       "idAccount": 1,
       "idClass": "KTPM03",
       "code": "SV01",
@@ -115,7 +115,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 2,
+      "id": 1,
       "idAccount": 1,
       "idClass": "KTPM03",
       "code": "SV02",
@@ -127,7 +127,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 3,
+      "id": 2,
       "idAccount": 1,
       "idClass": "KTPM03",
       "code": "SV03",
@@ -139,7 +139,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 4,
+      "id": 3,
       "idAccount": 1,
       "idClass": "KTPM01",
       "code": "SV04",
@@ -151,7 +151,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 5,
+      "id": 4,
       "idAccount": 1,
       "idClass": "KTPM02",
       "code": "SV05",
@@ -163,7 +163,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 6,
+      "id": 5,
       "idAccount": 1,
       "idClass": "KTPM04",
       "code": "SV06",
@@ -175,7 +175,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 7,
+      "id": 6,
       "idAccount": 1,
       "idClass": "KTPM03",
       "code": "SV07",
@@ -187,7 +187,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 8,
+      "id": 7,
       "idAccount": 1,
       "idClass": "KTPM03",
       "code": "SV08",
@@ -199,7 +199,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 9,
+      "id": 8,
       "idAccount": 1,
       "idClass": "KTPM02",
       "code": "SV09",
@@ -211,7 +211,7 @@
       "phoneNumber": "123456789"
     },
     {
-      "id": 10,
+      "id": 9,
       "idAccount": 1,
       "idClass": "KTPM04",
       "code": "SV10",
@@ -225,7 +225,7 @@
   ],
   "tbl_teacher": [
     {
-      "id": 1,
+      "id": 0,
       "idAccount": 2,
       "code": "GV01",
       "name": "Nguyễn Thị Trinh",
@@ -236,7 +236,7 @@
       "phoneNumber": "987654321"
     },
     {
-      "id": 2,
+      "id": 1,
       "idAccount": 2,
       "code": "GV02",
       "name": "Nguyễn Thị Kim Tuyến",
@@ -249,7 +249,7 @@
   ],
   "tbl_tour": [
     {
-      "id": 1,
+      "id": 0,
       "idTeacher": "GV01",
       "idCompany": "COMP001",
       "name": "City Tour",
@@ -259,7 +259,7 @@
       "startDate": "2024-09-01",
       "studentList":[
         {
-          "id": 1,
+          "id": 0,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV01",
@@ -271,7 +271,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 2,
+          "id": 1,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV02",
@@ -283,7 +283,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 3,
+          "id": 2,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV03",
@@ -295,7 +295,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 4,
+          "id": 3,
           "idAccount": 1,
           "idClass": "KTPM01",
           "code": "SV04",
@@ -307,7 +307,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 5,
+          "id": 4,
           "idAccount": 1,
           "idClass": "KTPM02",
           "code": "SV05",
@@ -321,7 +321,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 1,
       "idTeacher": "GV02",
       "idCompany": "COMP002",
       "name": "City Tour",
@@ -331,7 +331,7 @@
       "startDate": "2024-09-01",
       "studentList":[
         {
-          "id": 1,
+          "id": 0,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV01",
@@ -343,7 +343,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 2,
+          "id": 1,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV02",
@@ -355,7 +355,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 3,
+          "id": 2,
           "idAccount": 1,
           "idClass": "KTPM03",
           "code": "SV03",
@@ -367,7 +367,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 4,
+          "id": 3,
           "idAccount": 1,
           "idClass": "KTPM01",
           "code": "SV04",
@@ -379,7 +379,7 @@
           "phoneNumber": "123456789"
         },
         {
-          "id": 5,
+          "id": 4,
           "idAccount": 1,
           "idClass": "KTPM02",
           "code": "SV05",

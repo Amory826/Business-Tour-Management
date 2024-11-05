@@ -9,7 +9,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackCompany;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackCompany;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,5 +126,11 @@ public class Companies {
             }
         }
         return null;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return getName();
     }
 }

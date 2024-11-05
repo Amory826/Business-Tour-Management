@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterCompanyWithSchool;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackCompany;
 import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
 import com.nguyentrongtuan.businesstourmanagement.R;
 

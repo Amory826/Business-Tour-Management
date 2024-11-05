@@ -1,4 +1,4 @@
-package com.nguyentrongtuan.businesstourmanagement.Controller;
+package com.nguyentrongtuan.businesstourmanagement.Interface;
 
 import com.nguyentrongtuan.businesstourmanagement.Models.Class;
 

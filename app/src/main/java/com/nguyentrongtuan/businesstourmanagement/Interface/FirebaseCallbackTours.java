@@ -1,5 +1,5 @@
 // FirebaseCallback.java
-package com.nguyentrongtuan.businesstourmanagement.Controller;
+package com.nguyentrongtuan.businesstourmanagement.Interface;
 
 import java.util.List;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;

@@ -24,9 +24,18 @@
     <string name="find">Tìm kiếm</string>
     <string name="noTour">Không có tour nào được đăng ký.</string>
     <string name="add">Thêm</string>
+    <string name="delete">Xóa</string>
     <string name="addWithTourBusiness">Thêm tour tham quan</string>
     <string name="CodeTour">Mã tour tham quan</string>
     <string name="NameTour">Tên tour tham quan</string>
     <string name="NameTeacher">Giáo viên</string>
+    <string name="NameCompany">Công ty</string>
+    <string name="Available">Số lượng sinh viên</string>
+    <string name="DateStat">Ngày xuất phát</string>
+    <string name="Confirm">Xác nhận</string>
+    <string name="Cancel">Hủy</string>
+    <string name="Description">Chi tiết chuyến đi</string>
+    <string name="AddStudentByTour">Quản lý sinh viên cho tour</string>
+    <string name="ManagementStudent">Quản lý sinh viên</string>
 
 </resources>

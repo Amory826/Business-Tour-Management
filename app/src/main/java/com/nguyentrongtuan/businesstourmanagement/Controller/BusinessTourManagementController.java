@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterBusinessTourManagement;
 import com.nguyentrongtuan.businesstourmanagement.Adapter.RecyclerViewItemTouchHelper;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackStudent;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackTours;
 import com.nguyentrongtuan.businesstourmanagement.Interface.ItemTouchHelperListener;
+import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
@@ -23,9 +26,20 @@ public class BusinessTourManagementController implements ItemTouchHelperListener
     Context context;
     AdapterBusinessTourManagement adapter;
     final List<Tours> list = new ArrayList<>();
+    RecyclerView recyclerView;
+
+    public long getSizeList() {
+        return list.size();
+    }
+
 
     public BusinessTourManagementController(Context context) {
         this.context = context;
+    }
+
+    public BusinessTourManagementController(Context context, RecyclerView recyclerView) {
+        this.context = context;
+        this.recyclerView = recyclerView; // Initialize RecyclerView
     }
 
     public void getTourList(RecyclerView recyclerView) {
@@ -69,21 +83,36 @@ public class BusinessTourManagementController implements ItemTouchHelperListener
     public void onSwiped(RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof AdapterBusinessTourManagement.ViewHolder) {
             String nameTour = list.get(viewHolder.getAdapterPosition()).getName();
-
             Tours tourDelete = list.get(viewHolder.getAdapterPosition());
+
             int position = viewHolder.getAdapterPosition();
 
             adapter.removeItem(position);
 
-            // Display the Snackbar with the recyclerView as the root view
+            // Display the Snackbar with the viewHolder itemView as root
             Snackbar snackbar = Snackbar.make(viewHolder.itemView, nameTour + " deleted", Snackbar.LENGTH_LONG);
-            snackbar.setAction("Undo", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    adapter.undoItem(tourDelete, position);
+            snackbar.setAction("Undo", view -> {
+                adapter.undoItem(tourDelete, position);
+
+                // Check if recyclerView is not null before scrolling
+                if (recyclerView != null) {
+                    recyclerView.smoothScrollToPosition(position);
                 }
             });
             snackbar.show();
         }
+    }
+
+    public boolean checkCodeTour(String code){
+        for(Tours tour : list){
+            if(tour.getCode().contains(code))
+                return true;
+        }
+        return false;
+    }
+
+    public void addItemAdapter(Tours tours){
+        adapter.addItem(tours);
+        new Tours().addTour(tours, list.size()-1);
     }
 }

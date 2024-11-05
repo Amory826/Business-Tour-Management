@@ -9,9 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackClass;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackClass;
 import com.nguyentrongtuan.businesstourmanagement.Models.Class;
-import com.nguyentrongtuan.businesstourmanagement.Models.Companies;
 import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.R;
 

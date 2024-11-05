@@ -1,6 +1,5 @@
 package com.nguyentrongtuan.businesstourmanagement.Adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackClass;
 import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

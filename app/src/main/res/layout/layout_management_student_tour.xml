@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/BusinessTourManagement"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    android:orientation="vertical"
->
-
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/BusinessTourManagement"
+        android:text="@string/AddStudentByTour"
         android:textStyle="bold"
         android:textSize="18sp"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/padding12dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        />
 
     <Button
-        android:id="@+id/btnAddTour"
+        android:id="@+id/btnAddStudentTour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add"
@@ -60,16 +57,14 @@
             android:layout_marginTop="@dimen/padding40dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listTourManagement"
+            android:id="@+id/listStudentTour"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/padding20dp"
-
             >
 
         </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
-
 
 </LinearLayout>

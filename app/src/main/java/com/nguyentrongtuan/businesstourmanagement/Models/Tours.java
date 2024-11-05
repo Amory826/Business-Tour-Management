@@ -9,8 +9,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackStudent;
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTours;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackStudent;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackTours;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +24,7 @@ public class Tours {
     private String description;
     private String name;
     private String startDate;
-    private List<Tours> studentsList ;
-
-
+    private List<Students> studentsList ;
 
     DatabaseReference databaseReference;
 
@@ -35,14 +33,14 @@ public class Tours {
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public Tours(long available, String code, String description, long id, String idCompany,
-                 String idTeacher, String name, String startDate, List<Tours> studentsList) {
-        this.available = available;
-        this.code = code;
-        this.description = description;
+    public Tours(long id, String code, long available, String idTeacher, String idCompany,
+                 String description, String name, String startDate, List<Students> studentsList) {
         this.id = id;
-        this.idCompany = idCompany;
+        this.code = code;
+        this.available = available;
         this.idTeacher = idTeacher;
+        this.idCompany = idCompany;
+        this.description = description;
         this.name = name;
         this.startDate = startDate;
         this.studentsList = studentsList;
@@ -136,10 +134,9 @@ public class Tours {
     }
 
 
-    public void setStudentsList(List<Tours> studentsList) {
+    public void setStudentsList(List<Students> studentsList) {
         this.studentsList = studentsList;
     }
-
 
     public void getAllListTour(final FirebaseCallbackTours callback){
         databaseReference.child("tbl_tour").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -162,4 +159,12 @@ public class Tours {
             }
         });
     }
+
+    public void addTour(Tours tour, int position){
+        databaseReference.child("tbl_tour").child(position + "").setValue(tour);
+    }
+    public void deleteTour(int position){
+            databaseReference.child("tbl_tour").child(position + "").removeValue();
+        }
+
 }

@@ -1,5 +1,6 @@
     package com.nguyentrongtuan.businesstourmanagement.Controller;
 
+    import android.annotation.SuppressLint;
     import android.content.Context;
     import android.util.Log;
     import android.view.View;
@@ -10,6 +11,7 @@
     import androidx.recyclerview.widget.RecyclerView;
 
     import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterTourManagement;
+    import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackTours;
     import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
     import com.nguyentrongtuan.businesstourmanagement.R;
 
@@ -32,6 +34,7 @@
 
             Tours tour = new Tours();
             tour.getAllListTour(new FirebaseCallbackTours() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onCallback(List<Tours> fetchedList) {
                     if (fetchedList != null && !fetchedList.isEmpty()) {

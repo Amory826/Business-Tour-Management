@@ -18,6 +18,8 @@ import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentBusinessTourM
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentHome;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
+import java.util.Objects;
+
 public class MenuAdminActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
     private static final int FRAGMENT_HOME = 0;
@@ -51,7 +53,7 @@ public class MenuAdminActivity extends AppCompatActivity implements  NavigationV
         // Hiển thị biểu tượng menu 3 sọc
         actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.iconmenu);
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
         // Cho phép nút 3 sọc thay thế nút home trên thanh công cụ
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

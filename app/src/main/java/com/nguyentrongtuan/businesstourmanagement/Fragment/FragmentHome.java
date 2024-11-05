@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.nguyentrongtuan.businesstourmanagement.Controller.FirebaseCallbackTours;
+import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackTours;
 import com.nguyentrongtuan.businesstourmanagement.Adapter.AdapterListTour;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;

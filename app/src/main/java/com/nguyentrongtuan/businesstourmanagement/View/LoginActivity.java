@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Iterable<DataSnapshot> node = snapshot.getChildren();
                                 for (DataSnapshot child : node) {
                                     acc = child.getValue(Accounts.class);
+                                    assert acc != null;
                                     if(username.equals(acc.getUsername()) && password.equals(acc.getPassword())){
                                         dem ++;
                                         break;
