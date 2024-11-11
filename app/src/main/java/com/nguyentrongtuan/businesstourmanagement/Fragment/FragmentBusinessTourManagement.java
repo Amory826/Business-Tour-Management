@@ -49,12 +49,6 @@ public class FragmentBusinessTourManagement extends Fragment {
     LinearLayout layoutForeground;
     BusinessTourManagementController businessTourManagementController;
 
-
-
-
-    ArrayAdapter<Teachers> adapterTeacher;
-    ArrayAdapter<Companies> adapterCompany;
-
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -81,7 +75,7 @@ public class FragmentBusinessTourManagement extends Fragment {
     private void showAddTourDialog() {
         // Apply custom full-screen style to dialog
         Dialog dialog = new Dialog(requireContext(), R.style.FullScreenDialog);
-        dialog.setContentView(R.layout.layout_dialog_add_tour_with_business);
+        dialog.setContentView(R.layout.layout_dialog_add_edit_tour_with_business);
 
         TextInputEditText edtCodeTour = dialog.findViewById(R.id.edtCodeTour);
         TextInputEditText edtNameTour = dialog.findViewById(R.id.edtNameTour);
@@ -115,7 +109,7 @@ public class FragmentBusinessTourManagement extends Fragment {
                             codeTeacher[0] = selectedTeacher.getCode();
                         }
                     });
-                    edtNameTeacher.setText(list.get(0).getName(), false);
+//                    edtNameTeacher.setText(list.get(0).getName(), false);
                 }
             }
         });
@@ -144,9 +138,6 @@ public class FragmentBusinessTourManagement extends Fragment {
                             codeCompany[0] = selectedCompany.getCode();
                         }
                     });
-
-                    // Đặt tên của công ty đầu tiên vào AutoCompleteTextView nếu danh sách không rỗng
-                    edtNameCompany.setText(list.get(0).getName(), false);
                 }
             }
         });
@@ -170,7 +161,8 @@ public class FragmentBusinessTourManagement extends Fragment {
                     public void onClick(View view) {
                         String date = getDatePicker(datePicker);
 
-                        dateStart[0] = date;
+                        dateStart[0] = String.valueOf(datePicker.getYear()) + "-"
+                                + String.valueOf(datePicker.getMonth() + 1) + "-" + String.valueOf(datePicker.getDayOfMonth());
                         edtDateStat.setText(date);
                         dialogDate.dismiss();
                         Log.d("Login","123" + dateStart[0]);
@@ -195,6 +187,8 @@ public class FragmentBusinessTourManagement extends Fragment {
                 String availableStr = Objects.requireNonNull(edtAvailable.getText()).toString().trim();
                 String description = Objects.requireNonNull(edtDescription.getText()).toString().trim();
                 String dateStat = Objects.requireNonNull(edtDateStat.getText()).toString().trim();
+                String teacherName = Objects.requireNonNull(edtNameTeacher.getText()).toString().trim();
+                String companyName = Objects.requireNonNull(edtNameCompany.getText()).toString().trim();
 
                 if (codeTour.isEmpty()) {
                     edtCodeTour.setError("Vui lòng nhập mã tour");
@@ -211,6 +205,17 @@ public class FragmentBusinessTourManagement extends Fragment {
                 if (availableStr.isEmpty()) {
                     edtAvailable.setError("Vui lòng nhập số lượng sinh viên");
                     edtAvailable.requestFocus();
+                    return;
+                }
+
+                if (teacherName.isEmpty()) {
+                    Toast.makeText(getContext(), "Chọn giáo viên phụ trách", Toast.LENGTH_SHORT).show();
+                    edtNameTeacher.requestFocus();
+                    return;
+                }
+                if (companyName.isEmpty()) {
+                    Toast.makeText(getContext(), "Chọn giáo viên phụ trách", Toast.LENGTH_SHORT).show();
+                    edtNameCompany.requestFocus();
                     return;
                 }
 
@@ -232,7 +237,6 @@ public class FragmentBusinessTourManagement extends Fragment {
                 }
 
                 List<Students>  listStudent = new ArrayList<>();
-                Log.d("Login","123 after: " + dateStart[0]);
                 Tours tourAdd = new Tours(businessTourManagementController.getSizeList(), codeTour, available,
                         codeTeacher[0], codeCompany[0], description, nameTour,dateStart[0], listStudent);
 
@@ -253,9 +257,6 @@ public class FragmentBusinessTourManagement extends Fragment {
                         }
                     }
                 });
-
-
-
 
                 if(businessTourManagementController.checkCodeTour(codeTour)){
                     edtCodeTour.setError("Mã tour đã trùng vui lòng nhập lại!");
@@ -288,8 +289,7 @@ public class FragmentBusinessTourManagement extends Fragment {
         day = String.valueOf(datePicker.getDayOfMonth());
         month = String.valueOf(datePicker.getMonth() + 1);
         year = String.valueOf(datePicker.getYear());
-        date = year + "-" + month + "-" + day;
-        date = year + "-" + month + "-" + day;
+        date =  day + "-" + month + "-" + year;
 
         return date;
     }

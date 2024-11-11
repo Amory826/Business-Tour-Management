@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -99,7 +100,20 @@ public class BusinessTourManagementController implements ItemTouchHelperListener
                     recyclerView.smoothScrollToPosition(position);
                 }
             });
+
+            // Add callback to detect dismissal
+            snackbar.addCallback(new Snackbar.Callback() {
+                @Override
+                public void onDismissed(Snackbar transientBottomBar, int event) {
+                    if (event != Snackbar.Callback.DISMISS_EVENT_ACTION) {
+                        new Tours().deleteTour(position);
+                    }
+                }
+            });
+
             snackbar.show();
+
+
         }
     }
 

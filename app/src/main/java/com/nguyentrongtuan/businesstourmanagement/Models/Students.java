@@ -11,10 +11,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackStudent;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Students {
+public class Students implements Serializable {
     private long id;
     private long idAccount;
     private String code;
@@ -26,7 +27,7 @@ public class Students {
     private String idClass;
     private String address;
 
-    DatabaseReference databaseReference;
+    private transient DatabaseReference databaseReference;
 
     public Students() {
         databaseReference = FirebaseDatabase.getInstance().getReference();

@@ -1,6 +1,8 @@
 package com.nguyentrongtuan.businesstourmanagement.Models;
 
-public class Accounts {
+import java.io.Serializable;
+
+public class Accounts implements Serializable {
     private long id;
     private String username;
     private String password;

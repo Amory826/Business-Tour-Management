@@ -12,10 +12,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackStudent;
 import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackTours;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tours {
+public class Tours  implements Serializable {
     private long id;
     private String code;
     private long available;
@@ -24,9 +25,9 @@ public class Tours {
     private String description;
     private String name;
     private String startDate;
-    private List<Students> studentsList ;
+    private List<Students> studentList;
 
-    DatabaseReference databaseReference;
+    private transient DatabaseReference databaseReference;
 
 
     public Tours() {
@@ -43,7 +44,7 @@ public class Tours {
         this.description = description;
         this.name = name;
         this.startDate = startDate;
-        this.studentsList = studentsList;
+        this.studentList = studentsList;
     }
 
     public long getAvailable() {
@@ -111,6 +112,9 @@ public class Tours {
     }
 
     public void getStudentsList(int index, final FirebaseCallbackStudent callback) {
+        if (databaseReference == null) {
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+        }
         databaseReference.child("tbl_tour").child(index + "").child("studentList")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -123,6 +127,7 @@ public class Tours {
                             }
                         }
                         callback.onCallback(students);
+                        Log.d("123456", students.size() + " students");
                     }
 
                     @Override
@@ -130,12 +135,16 @@ public class Tours {
                         Log.e("FirebaseError", "Failed to load students.", error.toException());
                         callback.onCallback(new ArrayList<>()); // Trả về danh sách rỗng nếu có lỗi
                     }
+
+
                 });
     }
 
 
-    public void setStudentsList(List<Students> studentsList) {
-        this.studentsList = studentsList;
+
+    public void setStudentList(List<Students> studentList) {
+        this.studentList = studentList;
+        Log.d("1234", String.valueOf(this.studentList.size()));
     }
 
     public void getAllListTour(final FirebaseCallbackTours callback){
@@ -164,7 +173,18 @@ public class Tours {
         databaseReference.child("tbl_tour").child(position + "").setValue(tour);
     }
     public void deleteTour(int position){
-            databaseReference.child("tbl_tour").child(position + "").removeValue();
-        }
+        databaseReference.child("tbl_tour").child(position + "").removeValue();
+    }
+
+    public void addListByTour(List<Students> list, int position){
+        databaseReference.child("tbl_tour").child(position + "").child("studentList").setValue(list);
+    }
+
+    public void deleteStudentByTour(int positionTour, int positionStudent){
+        databaseReference.child("tbl_tour").child(positionTour + "").child("studentList")
+                .child(positionStudent + "").removeValue();
+    }
+
+
 
 }

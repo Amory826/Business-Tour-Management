@@ -4,14 +4,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackClass;
+import com.nguyentrongtuan.businesstourmanagement.Interface.ForegroundLayoutHolder;
 import com.nguyentrongtuan.businesstourmanagement.Models.Class;
 import com.nguyentrongtuan.businesstourmanagement.Models.Students;
+import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
+import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.text.ParseException;
@@ -26,17 +30,19 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
     private int resource;
 
     public AdapterStudentManagement() {
+        this.listStudent = new ArrayList<>(); // Khởi tạo danh sách trống
     }
 
     public AdapterStudentManagement(List<Students> listStudent, int resource) {
-        this.listStudent = listStudent;
+        this.listStudent = (listStudent != null) ? listStudent : new ArrayList<>(); // Nếu null thì khởi tạo danh sách trống
         this.resource = resource;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
+    public static class ViewHolder extends RecyclerView.ViewHolder implements ForegroundLayoutHolder {
+        LinearLayout layoutForeground;
         TextView nameStudent, txtIdStudent, txtNameClass, txtAddress, txtDateOfBirth, txtEmailStudent, txtPhoneStudent;
-        View line;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -47,7 +53,12 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
             txtDateOfBirth = itemView.findViewById(R.id.txtDateOfBirth);
             txtEmailStudent = itemView.findViewById(R.id.txtEmailStudent);
             txtPhoneStudent = itemView.findViewById(R.id.txtPhoneStudent);
-            line = itemView.findViewById(R.id.line);
+            layoutForeground = itemView.findViewById(R.id.layoutForeground);
+        }
+
+        @Override
+        public View getForegroundView() {
+            return layoutForeground;
         }
     }
 
@@ -55,8 +66,7 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
     @Override
     public AdapterStudentManagement.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
-        AdapterStudentManagement.ViewHolder holder = new AdapterStudentManagement.ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     @Override
@@ -107,13 +117,23 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
             holder.txtEmailStudent.setText("Email: " + student.getEmail());
             holder.txtPhoneStudent.setText("SĐT: " + student.getPhoneNumber());
         }
-        if(position == listStudent.size()-1)
-            holder.line.setVisibility(View.GONE);
-
     }
 
     @Override
     public int getItemCount() {
-        return listStudent.size();
+        return (listStudent != null) ? listStudent.size() : 0;
     }
+
+
+    public void removeItem(int position) {
+        listStudent.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void undoItem(Students student, int position) {
+        listStudent.add(position, student);
+        notifyItemInserted(position);
+    }
+
+
 }

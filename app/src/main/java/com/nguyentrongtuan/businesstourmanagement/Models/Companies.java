@@ -11,10 +11,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackCompany;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Companies {
+public class Companies implements Serializable {
     private long id;
     private String code;
     private String name;
@@ -23,7 +24,7 @@ public class Companies {
     private String description;
     private String email;
 
-    DatabaseReference databaseReference;
+    private transient DatabaseReference databaseReference;
 
     public Companies() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
