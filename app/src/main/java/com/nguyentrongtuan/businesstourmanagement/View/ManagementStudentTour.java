@@ -1,10 +1,6 @@
 package com.nguyentrongtuan.businesstourmanagement.View;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nguyentrongtuan.businesstourmanagement.Controller.StudentManagementController;
-import com.nguyentrongtuan.businesstourmanagement.Controller.StudentTourManagementController;
-import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackStudent;
 import com.nguyentrongtuan.businesstourmanagement.Models.Students;
 import com.nguyentrongtuan.businesstourmanagement.Models.Tours;
 import com.nguyentrongtuan.businesstourmanagement.R;
@@ -29,7 +23,7 @@ public class ManagementStudentTour extends AppCompatActivity {
     Button btnAddStudentTour;
     ProgressBar progressBar;
 
-    StudentTourManagementController studentManagementController;
+    StudentManagementController studentManagementController;
 
     List<Students> listStudent = new ArrayList<>();
 
@@ -55,7 +49,7 @@ public class ManagementStudentTour extends AppCompatActivity {
             positionTour = Math.toIntExact(tour.getId());
         }
 
-        studentManagementController = new StudentTourManagementController(getApplicationContext(), listStudent, positionTour);
+        studentManagementController = new StudentManagementController(getApplicationContext(), listStudent, positionTour, R.layout.custom_students_teachers_management_home);
 
         studentManagementController.getTourList(listStudentTour);
 

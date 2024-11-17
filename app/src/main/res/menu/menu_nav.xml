@@ -4,7 +4,7 @@
         >
         <item android:id="@+id/home"
             android:title="@string/home"
-            android:icon="@drawable/iconhome"
+            android:icon="@null"
             />
         <item android:id="@+id/BusinessTourManagement"
             android:title="@string/BusinessTourManagement"

@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentBusinessTourManagement;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentHome;
+import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentStudentInformationManagement;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.util.Objects;
@@ -24,7 +25,7 @@ public class MenuAdminActivity extends AppCompatActivity implements  NavigationV
 
     private static final int FRAGMENT_HOME = 0;
     private static final int FRAGMENT_BusinessTourManagement = 1;
-    private static final int StudentInformationManagement = 2;
+    private static final int FRAGMENT_StudentInformationManagement = 2;
     private static final int FRAGMENT_TeacherInformationManagement = 3;
     private static final int FRAGMENT_BusinessInformationManagement = 4;
     private static final int FRAGMENT_ClassroomInformationManagement = 5;
@@ -88,6 +89,11 @@ public class MenuAdminActivity extends AppCompatActivity implements  NavigationV
             if(mCurrentFragment != FRAGMENT_BusinessTourManagement){
                 replaceFragment(new FragmentBusinessTourManagement());
                 mCurrentFragment = FRAGMENT_BusinessTourManagement;
+            }
+        } else if ( id == R.id.StudentInformationManagement) {
+            if(mCurrentFragment != FRAGMENT_StudentInformationManagement){
+                replaceFragment(new FragmentStudentInformationManagement());
+                mCurrentFragment = FRAGMENT_StudentInformationManagement;
             }
         }
 

@@ -51,44 +51,42 @@ public class AdapterTeacherManagement extends RecyclerView.Adapter<AdapterTeache
     @Override
     public AdapterTeacherManagement.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
-        AdapterTeacherManagement.ViewHolder holder = new AdapterTeacherManagement.ViewHolder(view);
-        return holder;
+        if (view == null) {
+            throw new IllegalStateException("Layout resource is invalid or not found.");
+        }
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterTeacherManagement.ViewHolder holder, int position) {
+        if (listTeacher == null || position >= listTeacher.size()) return;
+
         Teachers teacher = listTeacher.get(position);
         if (teacher != null) {
             holder.txtNameStudent.setText(teacher.getName());
             holder.txtIdStudent.setText("Mã giang viên: " + teacher.getCode());
-
-            holder.txtNameClass.setVisibility(View.GONE);
-
+            if (holder.txtNameClass != null) {
+                holder.txtNameClass.setVisibility(View.GONE);
+            }
 
             SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-
             try {
-                // Convert string to Date
                 Date date = inputFormat.parse(teacher.getBirthDate());
-
-                // Format Date to desired format
                 SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
-                String formattedDate = outputFormat.format(date);
-
-                // Set formatted date
-                holder.txtDateOfBirth.setText("Ngày sinh: " + formattedDate);
+                holder.txtDateOfBirth.setText("Ngày sinh: " + outputFormat.format(date));
             } catch (ParseException e) {
-                e.printStackTrace();
                 holder.txtDateOfBirth.setText("Ngày sinh: N/A");
             }
+
             holder.txtAddress.setText("Địa chỉ: " + teacher.getAddress());
             holder.txtEmailStudent.setText("Email: " + teacher.getEmail());
             holder.txtPhoneStudent.setText("SĐT: " + teacher.getPhoneNumber());
         }
-        if(position == listTeacher.size()-1)
+        if (holder.line != null && position == listTeacher.size() - 1) {
             holder.line.setVisibility(View.GONE);
-
+        }
     }
+
 
     @Override
     public int getItemCount() {

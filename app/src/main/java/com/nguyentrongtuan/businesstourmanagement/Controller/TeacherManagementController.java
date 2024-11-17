@@ -21,9 +21,11 @@ import java.util.List;
 public class TeacherManagementController {
     Context context;
     AdapterTeacherManagement adapter;
+    int resource;
 
-    public TeacherManagementController(Context context){
+    public TeacherManagementController(Context context, int resource){
         this.context = context;
+        this.resource = resource;
     }
 
     public void getTeacherList(RecyclerView recyclerView, ProgressBar loadListView, TextView txtNoTeacher){
@@ -49,7 +51,7 @@ public class TeacherManagementController {
                             recyclerView.setVisibility(View.VISIBLE);
                         }
                         txtNoTeacher.setVisibility(View.GONE);
-                        adapter = new AdapterTeacherManagement(list, R.layout.custom_students_teachers_management);
+                        adapter = new AdapterTeacherManagement(list, resource);
                         recyclerView.setAdapter(adapter);
                         loadListView.setVisibility(View.GONE);
                         adapter.notifyDataSetChanged();
@@ -89,7 +91,7 @@ public class TeacherManagementController {
                     }else {
                         if(recyclerView.getVisibility() == View.GONE)
                             recyclerView.setVisibility(View.VISIBLE);
-                        adapter = new AdapterTeacherManagement(TeacherListByName, R.layout.custom_students_teachers_management);
+                        adapter = new AdapterTeacherManagement(TeacherListByName, R.layout.custom_students_teachers_management_home);
                         recyclerView.setAdapter(adapter);
                         loadListView.setVisibility(View.GONE);
                         adapter.notifyDataSetChanged();

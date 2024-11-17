@@ -82,7 +82,7 @@ public class ShowData extends AppCompatActivity {
         } else if ("btnStudentManagement".equals(nameId)) {
             txtContent.setText("Quản lý sinh viên");
             StudentManagementController studentManagementController;
-            studentManagementController = new StudentManagementController(this);
+            studentManagementController = new StudentManagementController(this, R.layout.custom_students_teachers_management_home);
 
             studentManagementController.getStudentList(recyclerTourManagement, loadListView, txtNoTour);
 
@@ -96,7 +96,7 @@ public class ShowData extends AppCompatActivity {
         } else if ("btnTeacherManagement".equals(nameId)) {
             txtContent.setText("Quản lý giảng viên");
             TeacherManagementController teacherManagementController;
-            teacherManagementController = new TeacherManagementController(this);
+            teacherManagementController = new TeacherManagementController(this, R.layout.custom_students_teachers_management_home);
             teacherManagementController.getTeacherList(recyclerTourManagement, loadListView, txtNoTour);
             btnSearch.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ import java.util.List;
 public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStudentManagement.ViewHolder> {
 
     private List<Students> listStudent;
-    private int resource;
+    private static int resource;
 
     public AdapterStudentManagement() {
         this.listStudent = new ArrayList<>(); // Khởi tạo danh sách trống
@@ -41,6 +42,7 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
     public static class ViewHolder extends RecyclerView.ViewHolder implements ForegroundLayoutHolder {
         LinearLayout layoutForeground;
         TextView nameStudent, txtIdStudent, txtNameClass, txtAddress, txtDateOfBirth, txtEmailStudent, txtPhoneStudent;
+        Button btnEdit;
 
 
 
@@ -54,6 +56,9 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
             txtEmailStudent = itemView.findViewById(R.id.txtEmailStudent);
             txtPhoneStudent = itemView.findViewById(R.id.txtPhoneStudent);
             layoutForeground = itemView.findViewById(R.id.layoutForeground);
+            if(resource == R.layout.custom_students_teachers_management_home){
+                btnEdit = itemView.findViewById(R.id.btnEdit);
+            }
         }
 
         @Override
@@ -116,6 +121,8 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
             holder.txtAddress.setText("Địa chỉ: " + student.getAddress());
             holder.txtEmailStudent.setText("Email: " + student.getEmail());
             holder.txtPhoneStudent.setText("SĐT: " + student.getPhoneNumber());
+
+
         }
     }
 
