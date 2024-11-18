@@ -215,7 +215,7 @@ public class FragmentStudentInformationManagement extends Fragment {
                                                 phoneNumber, addressImage, email, nameStudent, codeClass[0], address);
 
                 if(studentManagementController.checkCodeTour(codeStudent)){
-                    edtCodeStudent.setError("Mã sunh viên đã trùng vui lòng nhập lại!");
+                    edtCodeStudent.setError("Mã sinh viên đã trùng vui lòng nhập lại!");
                     edtCodeStudent.requestFocus();
                     return;
                 }else{

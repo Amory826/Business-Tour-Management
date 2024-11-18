@@ -173,7 +173,7 @@ public class StudentManagementController implements ItemTouchHelperListener {
                         if(resource == R.layout.custom_student_teacher_management){
                             new Tours().deleteStudentByTour(position, positionStudent);
                         }else if(resource == R.layout.layout_custom_fragmment_student_teacher_management){
-                            new Students().deleteTour(positionStudent);
+                            new Students().deleteStudent(positionStudent);
                         }
 
                     }
@@ -194,6 +194,6 @@ public class StudentManagementController implements ItemTouchHelperListener {
 
     public void addItemAdapter(Students s){
         adapter.addItem(s);
-        new Students().addTour(s, list.size()-1);
+        new Students().addStudent(s, list.size()-1);
     }
 }

@@ -158,11 +158,11 @@ public class Students implements Serializable {
         return null;
     }
 
-    public void addTour(Students student, int position){
+    public void addStudent(Students student, int position){
         databaseReference.child("tbl_student").child(position + "").setValue(student);
     }
 
-    public void deleteTour(int position){
+    public void deleteStudent(int position){
         databaseReference.child("tbl_student").child(position + "").removeValue();
     }
 }
