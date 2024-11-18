@@ -7,6 +7,28 @@
     android:orientation="horizontal"
     >
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/dm4dp">
+
+        <Button
+            android:id="@+id/delete_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_business_tour_management"
+            android:text="@string/delete"
+            android:textColor="@color/black"
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="@color/delete"
+            app:backgroundTint="@null"
+            android:textAlignment="viewEnd"
+            />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layoutForeground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

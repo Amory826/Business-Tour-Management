@@ -131,6 +131,11 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
         return (listStudent != null) ? listStudent.size() : 0;
     }
 
+    public void addItem(Students s) {
+        listStudent.add(s);
+        notifyItemInserted(listStudent.size() - 1);
+    }
+
 
     public void removeItem(int position) {
         listStudent.remove(position);

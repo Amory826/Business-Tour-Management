@@ -21,7 +21,7 @@ public class Students implements Serializable {
     private String code;
     private String birthDate;
     private String phoneNumber;
-    private String description;
+    private String addressImage;
     private String email;
     private String name;
     private String idClass;
@@ -34,13 +34,13 @@ public class Students implements Serializable {
     }
 
     public Students(long id, long idAccount, String code, String birthDate, String phoneNumber,
-                    String description, String email, String name, String idClass, String address) {
+                    String addressImage, String email, String name, String idClass, String address) {
         this.id = id;
         this.idAccount = idAccount;
         this.code = code;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
-        this.description = description;
+        this.addressImage = addressImage;
         this.email = email;
         this.name = name;
         this.idClass = idClass;
@@ -87,12 +87,12 @@ public class Students implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getDescription() {
-        return description;
+    public String getaddressImage() {
+        return addressImage;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setaddressImage(String addressImage) {
+        this.addressImage = addressImage;
     }
 
     public String getEmail() {

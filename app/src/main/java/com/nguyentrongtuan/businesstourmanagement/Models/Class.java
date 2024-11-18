@@ -98,4 +98,10 @@ public class Class implements Serializable {
         return null;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return getName();
+    }
+
 }

@@ -44,7 +44,6 @@ public class StudentManagementController implements ItemTouchHelperListener {
     }
 
 
-
     public void getStudentList(RecyclerView recyclerView, ProgressBar loadListView, TextView txtNoStudent){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
@@ -120,6 +119,7 @@ public class StudentManagementController implements ItemTouchHelperListener {
         });
     }
 
+
     public long getSizeList() {
         return list.size();
     }
@@ -182,5 +182,18 @@ public class StudentManagementController implements ItemTouchHelperListener {
 
             snackbar.show();
         }
+    }
+
+    public boolean checkCodeTour(String code){
+        for(Students students : list){
+            if(students.getCode().contains(code))
+                return true;
+        }
+        return false;
+    }
+
+    public void addItemAdapter(Students s){
+        adapter.addItem(s);
+        new Students().addTour(s, list.size()-1);
     }
 }
