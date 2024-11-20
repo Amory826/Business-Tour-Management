@@ -21,7 +21,7 @@ public class Teachers implements Serializable {
     private String code;
     private String birthDate;
     private String phoneNumber;
-    private String description;
+    private String addressImage;
     private String email;
     private String name;
     private String address;
@@ -33,13 +33,13 @@ public class Teachers implements Serializable {
     }
 
     public Teachers(long id, long idAccount, String code, String birthDate, String phoneNumber,
-                    String description, String email, String name, String address) {
+                    String addressImage, String email, String name, String address) {
         this.id = id;
         this.idAccount = idAccount;
         this.code = code;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
-        this.description = description;
+        this.addressImage = addressImage;
         this.email = email;
         this.name = name;
         this.address = address;
@@ -85,12 +85,12 @@ public class Teachers implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAddressImage() {
+        return addressImage;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAddressImage(String addressImage) {
+        this.addressImage = addressImage;
     }
 
     public String getEmail() {
@@ -153,5 +153,13 @@ public class Teachers implements Serializable {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public void addTeacher(Teachers s, int position){
+        databaseReference.child("tbl_teacher").child(position + "").setValue(s);
+    }
+
+    public void deleteTeacher(int position){
+        databaseReference.child("tbl_teacher").child(position + "").removeValue();
     }
 }

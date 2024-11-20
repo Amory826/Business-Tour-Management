@@ -80,6 +80,7 @@ public class StudentManagementController implements ItemTouchHelperListener {
         deleteStudent();
     }
 
+
     public void getStudentListByName(RecyclerView recyclerView, String nameStudent, ProgressBar loadListView, TextView txtNoTour){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
@@ -133,7 +134,6 @@ public class StudentManagementController implements ItemTouchHelperListener {
         adapter = new AdapterStudentManagement(list, resource);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        deleteStudent();
     }
 
     private void deleteStudent() {

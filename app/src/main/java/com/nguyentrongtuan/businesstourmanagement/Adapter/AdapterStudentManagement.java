@@ -134,8 +134,9 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
                     @Override
                     public void onClick(View view) {
                         Dialog dialog = new Dialog(view.getContext(), R.style.FullScreenDialog);
-                        dialog.setContentView(R.layout.layout_dialog_add_edit_student_management);
+                        dialog.setContentView(R.layout.layout_dialog_add_edit_student_teacher_management);
 
+                        TextView txtNameTitle = dialog.findViewById(R.id.txtNameTitle);
                         TextInputEditText edtCodeStudent = dialog.findViewById(R.id.edtCodeStudent);
                         TextInputEditText edtNameStudent = dialog.findViewById(R.id.edtNameStudent);
                         TextInputEditText edtAddress = dialog.findViewById(R.id.edtAddress);
@@ -146,6 +147,8 @@ public class AdapterStudentManagement extends RecyclerView.Adapter<AdapterStuden
 
                         Button btnSubmit = dialog.findViewById(R.id.btnSubmit);
                         Button btnCancel = dialog.findViewById(R.id.btnCancel);
+
+                        txtNameTitle.setText("Sửa thông tin sinh viên");
 
                         final String[] codeClass = {student.getIdClass()};
                         Class aClass = new Class();

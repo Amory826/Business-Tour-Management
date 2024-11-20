@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -21,28 +19,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.nguyentrongtuan.businesstourmanagement.Controller.StudentManagementController;
-import com.nguyentrongtuan.businesstourmanagement.Interface.FirebaseCallbackClass;
-import com.nguyentrongtuan.businesstourmanagement.Models.Class;
-import com.nguyentrongtuan.businesstourmanagement.Models.Students;
+import com.google.android.material.textfield.TextInputLayout;
+import com.nguyentrongtuan.businesstourmanagement.Controller.TeacherManagementController;
+import com.nguyentrongtuan.businesstourmanagement.Models.Teachers;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import org.jetbrains.annotations.Contract;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class FragmentStudentInformationManagement extends Fragment {
 
+public class FragmentTeacherInformationManagement extends Fragment {
     RecyclerView recyclerView;
     TextView txtNameTitle, txtNoTour;
     Button btnAddStudent;
     ProgressBar progressBar;
-    StudentManagementController studentManagementController;
-    List<Class> listClass = new ArrayList<>();
+    TeacherManagementController teacherManagementController;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,9 +47,11 @@ public class FragmentStudentInformationManagement extends Fragment {
         txtNameTitle = view.findViewById(R.id.txtNameTitle);
         recyclerView = view.findViewById(R.id.recyclerView);
 
-        studentManagementController = new StudentManagementController(getContext(), R.layout.layout_custom_fragmment_student_teacher_management);
+        txtNameTitle.setText("Quản lý giáo viên");
 
-        studentManagementController.getStudentList(recyclerView, progressBar, txtNoTour);
+        teacherManagementController = new TeacherManagementController(getContext(), R.layout.layout_custom_fragmment_student_teacher_management);
+
+        teacherManagementController.getTeacherList(recyclerView, progressBar, txtNoTour);
 
         btnAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,47 +63,32 @@ public class FragmentStudentInformationManagement extends Fragment {
         return view;
     }
 
-
     private void showDialog(){
         Dialog dialog = new Dialog(requireContext(), R.style.FullScreenDialog);
         dialog.setContentView(R.layout.layout_dialog_add_edit_student_teacher_management);
 
-        TextInputEditText edtCodeStudent = dialog.findViewById(R.id.edtCodeStudent);
-        TextInputEditText edtNameStudent = dialog.findViewById(R.id.edtNameStudent);
+        TextInputEditText edtCodeTeacher = dialog.findViewById(R.id.edtCodeStudent);
+        TextInputEditText edtNameTeacher = dialog.findViewById(R.id.edtNameStudent);
         TextInputEditText edtAddress = dialog.findViewById(R.id.edtAddress);
         TextInputEditText edtBirthDate = dialog.findViewById(R.id.edtBirthDate);
         TextInputEditText edtEmail = dialog.findViewById(R.id.edtEmail);
         TextInputEditText edtPhoneNumber = dialog.findViewById(R.id.edtPhoneNumber);
         AutoCompleteTextView edtNameClass = dialog.findViewById(R.id.edtNameClass);
 
+        TextInputLayout layoutNameClass = dialog.findViewById(R.id.layoutNameClass);
+        TextInputLayout layoutNameTeacher = dialog.findViewById(R.id.layoutNameStudent);
+        TextInputLayout layoutCodeTeacher = dialog.findViewById(R.id.layoutCodeStudent);
+
+
+        layoutCodeTeacher.setHint("Mã giáo viên");
+        layoutNameTeacher.setHint("Tên giáo viên");
+
+
+        edtNameClass.setVisibility(View.GONE);
+        layoutNameClass.setVisibility(View.GONE);
+
         Button btnSubmit = dialog.findViewById(R.id.btnSubmit);
         Button btnCancel = dialog.findViewById(R.id.btnCancel);
-
-        final String[] codeClass = {""};
-        Class aClass = new Class();
-        aClass.getAllClass(new  FirebaseCallbackClass() {
-            @Override
-            public void onCallback(List<Class> list) {
-                if (list != null && !list.isEmpty()) {
-                    listClass .clear();
-                    listClass.addAll(list);
-
-                    ArrayAdapter<Class> adapter = new ArrayAdapter<>(requireContext(), R.layout.layout_custom_sprinner, listClass);
-                    edtNameClass.setAdapter(adapter);
-
-                    edtNameClass.setOnClickListener(v -> edtNameClass.showDropDown());
-
-                    edtNameClass.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Class selectedClass = (Class) listClass.get(i);
-                            codeClass[0] = selectedClass.getCode();
-                        }
-                    });
-//                    edtNameTeacher.setText(list.get(0).getName(), false);
-                }
-            }
-        });
 
         //get date startR
         final String[] BirthDate = {""};
@@ -149,23 +129,23 @@ public class FragmentStudentInformationManagement extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String codeStudent = Objects.requireNonNull(edtCodeStudent.getText()).toString().trim();
-                String nameStudent = Objects.requireNonNull(edtNameStudent.getText()).toString().trim();
+                String codeTeacher = Objects.requireNonNull(edtCodeTeacher.getText()).toString().trim();
+                String nameTeacher = Objects.requireNonNull(edtNameTeacher.getText()).toString().trim();
                 String address = Objects.requireNonNull(edtAddress.getText()).toString().trim();
                 String birthDate = Objects.requireNonNull(edtBirthDate.getText()).toString().trim();
                 String email = Objects.requireNonNull(edtEmail.getText()).toString().trim();
                 String phoneNumber = Objects.requireNonNull(edtPhoneNumber.getText()).toString().trim();
-                String NameClass = Objects.requireNonNull(edtNameClass.getText()).toString().trim();
 
-                if (codeStudent.isEmpty()) {
-                    edtCodeStudent.setError("Vui lòng nhập mã sinh viên");
-                    edtCodeStudent.requestFocus();
+
+                if (codeTeacher.isEmpty()) {
+                    edtCodeTeacher.setError("Vui lòng nhập mã sinh viên");
+                    edtCodeTeacher.requestFocus();
                     return;
                 }
 
-                if (nameStudent.isEmpty()) {
-                    edtNameStudent.setError("Vui lòng nhập tên sinh viên");
-                    edtNameStudent.requestFocus();
+                if (nameTeacher.isEmpty()) {
+                    edtNameTeacher.setError("Vui lòng nhập tên sinh viên");
+                    edtNameTeacher.requestFocus();
                     return;
                 }
 
@@ -199,29 +179,19 @@ public class FragmentStudentInformationManagement extends Fragment {
                     return;
                 }
 
-                if (NameClass.isEmpty()) {
-                    edtNameClass.setError("Vui lòng nhập tên lớp");
-                    edtNameClass.requestFocus();
-                    return;
-                }else{
-                    edtNameClass.setError(null);
-                }
-
                 String addressImage = "/images/john.jpg";
-                Students studentAdd = new Students(studentManagementController.getSizeList(), 1, codeStudent, BirthDate[0],
-                                                phoneNumber, addressImage, email, nameStudent, codeClass[0], address);
+                Teachers teacherAdd = new Teachers(teacherManagementController.getSizeList(), 1, codeTeacher, BirthDate[0],
+                        phoneNumber, addressImage, email, nameTeacher, address);
 
-                if(studentManagementController.checkCodeTour(codeStudent)){
-                    edtCodeStudent.setError("Mã sinh viên đã trùng vui lòng nhập lại!");
-                    edtCodeStudent.requestFocus();
+                if(teacherManagementController.checkCodeTour(codeTeacher)){
+                    edtCodeTeacher.setError("Mã sinh viên đã trùng vui lòng nhập lại!");
+                    edtCodeTeacher.requestFocus();
                     return;
                 }else{
-                    studentManagementController.addItemAdapter(studentAdd);
-                    recyclerView.scrollToPosition((int)studentManagementController.getSizeList()-1);
+                    teacherManagementController.addItemAdapter(teacherAdd);
+                    recyclerView.scrollToPosition((int)teacherManagementController.getSizeList()-1);
                 }
                 dialog.dismiss();
-
-
             }
         });
 

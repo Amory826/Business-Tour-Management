@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentBusinessTourManagement;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentHome;
 import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentStudentInformationManagement;
+import com.nguyentrongtuan.businesstourmanagement.Fragment.FragmentTeacherInformationManagement;
 import com.nguyentrongtuan.businesstourmanagement.R;
 
 import java.util.Objects;
@@ -94,6 +95,11 @@ public class MenuAdminActivity extends AppCompatActivity implements  NavigationV
             if(mCurrentFragment != FRAGMENT_StudentInformationManagement){
                 replaceFragment(new FragmentStudentInformationManagement());
                 mCurrentFragment = FRAGMENT_StudentInformationManagement;
+            }
+        }else if ( id == R.id.TeacherInformationManagement) {
+            if(mCurrentFragment != FRAGMENT_TeacherInformationManagement){
+                replaceFragment(new FragmentTeacherInformationManagement());
+                mCurrentFragment = FRAGMENT_TeacherInformationManagement;
             }
         }
 
