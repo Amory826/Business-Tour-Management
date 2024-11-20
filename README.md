@@ -42,3 +42,16 @@
 
 ### 1.3. Sơ đồ quan hệ giữa các bảng 
 <img src= "images-function/diagram.jpg" Height="500" width = "700"/>
+
+## 2. Giao diện hệ thống
+
+### 2.1. Giao diện tải app
+<img src= "images-function/loadscreen.jpg" Height="500" width = "700"/>
+*Giao diện loadscreen app*
+
+### 2.2. Giao diện đăng nhập
+<img src= "images-function/login.jpg" Height="500" width = "700"/>
+*Giao diện đăng nhập của admin và user*
+
+### 2.3. Giao diện admin
+<img src= "images-function/adminHome.jpg" Height="500" width = "700"/>
