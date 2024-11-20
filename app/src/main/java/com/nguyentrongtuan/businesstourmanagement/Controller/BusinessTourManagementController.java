@@ -28,19 +28,18 @@ public class BusinessTourManagementController implements ItemTouchHelperListener
     AdapterBusinessTourManagement adapter;
     final List<Tours> list = new ArrayList<>();
     RecyclerView recyclerView;
+    int resource;
 
     public long getSizeList() {
         return list.size();
     }
 
 
-    public BusinessTourManagementController(Context context) {
-        this.context = context;
-    }
 
-    public BusinessTourManagementController(Context context, RecyclerView recyclerView) {
+    public BusinessTourManagementController(Context context, RecyclerView recyclerView, int resource) {
         this.context = context;
         this.recyclerView = recyclerView; // Initialize RecyclerView
+        this.resource = resource;
     }
 
     public void getTourList(RecyclerView recyclerView) {
@@ -61,12 +60,12 @@ public class BusinessTourManagementController implements ItemTouchHelperListener
                         if (recyclerView.getVisibility() == View.GONE) {
                             recyclerView.setVisibility(View.VISIBLE);
                         }
-                        adapter = new AdapterBusinessTourManagement(list, R.layout.custom_layout_business_tour_management);
+                        adapter = new AdapterBusinessTourManagement(list, resource);
                         recyclerView.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
-
-                        deleteTour(recyclerView);
-                        Log.d("Login", "Tours loaded: " + fetchedList.size());
+                        if(resource == R.layout.custom_layout_business_tour_management) {
+                            deleteTour(recyclerView);
+                        }
                     }
                 } else {
                     Log.d("Login", "No tours found.");

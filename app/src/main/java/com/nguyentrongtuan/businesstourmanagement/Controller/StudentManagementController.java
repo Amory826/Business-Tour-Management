@@ -76,8 +76,10 @@ public class StudentManagementController implements ItemTouchHelperListener {
                 }
             }
         });
+        if(resource == R.layout.layout_custom_fragmment_student_teacher_management){
+            deleteStudent();
+        }
 
-        deleteStudent();
     }
 
 

@@ -71,7 +71,9 @@ public class TeacherManagementController implements ItemTouchHelperListener {
             }
 
         });
-        deleteTeacher();
+        if(resource == R.layout.layout_custom_fragmment_student_teacher_management){
+            deleteTeacher();
+        }
     }
 
     public void getTeacherListByName(RecyclerView recyclerView, String nameTeacher, ProgressBar loadListView, TextView txtNoTour){

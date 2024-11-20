@@ -60,7 +60,7 @@ public class FragmentBusinessTourManagement extends Fragment {
         txtNoTour = view.findViewById(R.id.txtNoTour);
         recyclerTourManagement = view.findViewById(R.id.listTourManagement);
         layoutForeground = view.findViewById(R.id.layoutForeground);
-        businessTourManagementController = new BusinessTourManagementController(getContext(), recyclerTourManagement);
+        businessTourManagementController = new BusinessTourManagementController(getContext(), recyclerTourManagement, R.layout.custom_layout_business_tour_management);
         businessTourManagementController.getTourList(recyclerTourManagement);
 
         btnAddTour.setOnClickListener(new View.OnClickListener() {
