@@ -46,12 +46,12 @@
 ## 2. Giao diện hệ thống
 
 ### 2.1. Giao diện tải app
-<img src= "images-function/loadscreen.jpg" Height="700" width = "500"/>
+<img src= "images-function/loadscreen.jpg" Height="800" width = "500"/>
 *Giao diện loadscreen app*
 
 ### 2.2. Giao diện đăng nhập
-<img src= "images-function/login.jpg" Height="700" width = "500"/>
+<img src= "images-function/login.jpg" Height="800" width = "500"/>
 *Giao diện đăng nhập của admin và user*
 
 ### 2.3. Giao diện admin
-<img src= "images-function/adminHome.jpg" Height="700" width = "500"/>
+<img src= "images-function/adminhome.jpg" Height="800" width = "500"/>
