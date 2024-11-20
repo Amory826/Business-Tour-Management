@@ -22,25 +22,22 @@
             android:name=".View.LoadScreen"
             android:exported="true"
             tools:ignore="ExtraText">
-
-
-        </activity>
-        <activity android:name=".View.LoginActivity" />
-        <activity android:name=".View.MenuStudentActivity" />
-        <activity
-            android:name=".View.MenuAdminActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".View.LoginActivity" />
+        <activity android:name=".View.MenuStudentActivity" />
+        <activity
+            android:name=".View.MenuAdminActivity"
+            android:exported="true">
+        </activity>
 
         <activity
             android:name=".View.MenuTeacherActivity"
             android:exported="true">
-
         </activity>
         <activity
             android:name=".View.ShowData"
@@ -49,7 +46,6 @@
         <activity
             android:name=".View.ManagementStudentTour"
             android:exported="true">
-
         </activity>
     </application>
 
