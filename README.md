@@ -47,6 +47,7 @@
 
 ### 2.1. Giao diện tải app
 <img src= "images-function/loadscreen.jpg" Height="800" width = "500"/>
+
 * Giao diện loadscreen app *
 
 ### 2.2. Giao diện đăng nhập
